@@ -14,13 +14,11 @@ public class PlayerInput : MonoBehaviour
 	float lookY;
 	bool fire1;
 
-	private void Awake()
-	{
-		floorMask = LayerMask.GetMask("Floor");
+	private void Awake() {
+		floorMask = LayerMask.GetMask("Environment");
 	}
 
-	private void Update()
-	{
+	private void Update() {
 		inputHorizontal = Input.GetAxisRaw("Horizontal");
 		inputVertical = Input.GetAxisRaw("Vertical");
 
