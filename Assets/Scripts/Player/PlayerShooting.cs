@@ -14,6 +14,7 @@ public class PlayerShooting : MonoBehaviour {
     AudioSource gunAudio;
     Light gunLight;
     float effectsDisplayTime = 0.2f;
+	PlayerInput playerInput;
 
     void Awake() {
         shootableMask = LayerMask.GetMask("Shootable");
@@ -21,13 +22,14 @@ public class PlayerShooting : MonoBehaviour {
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
+		playerInput = GetComponentInParent<PlayerInput>();
     }
 
 
     void FixedUpdate() {
         timer += Time.deltaTime;
 
-		if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0) {
+		if (playerInput.GetFire1() && timer >= timeBetweenBullets && Time.timeScale != 0) {
             Shoot();
         }
 

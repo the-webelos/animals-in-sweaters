@@ -6,22 +6,21 @@ public class PlayerMovement:MonoBehaviour {
     Vector3 movement;
     Animator anim;
     Rigidbody playerRigidbody;
-    int floorMask;
+	PlayerInput playerInput;
+	int floorMask;
     float camRayLength = 100f;
 
     private void Awake() {
         floorMask = LayerMask.GetMask("Floor");
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
-    }
+		playerInput = GetComponent<PlayerInput>();
+	}
 
-    private void FixedUpdate() {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        Move(h, v);
-        Turning();
-        Animating(h, v);
+	private void FixedUpdate() {
+        Move(playerInput.GetHorizontal(), playerInput.GetVertical());
+        Turning(playerInput.GetLookX(), playerInput.GetLookY());
+		Animating();
     }
 
     private void Move(float h, float v) {
@@ -30,21 +29,15 @@ public class PlayerMovement:MonoBehaviour {
         playerRigidbody.MovePosition(transform.position + movement);
     }
 
-    private void Turning() {
-        Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit floorHit;
+	private void Turning(float x, float y)
+	{
+		if (System.Math.Abs(x) > double.Epsilon || System.Math.Abs(y) > double.Epsilon) {
+    		Quaternion rotation = Quaternion.LookRotation(new Vector3(x, 0f, y));
+    		playerRigidbody.MoveRotation(rotation);
+     	}
+	}
 
-        if (Physics.Raycast(camRay, out floorHit, camRayLength, floorMask)) {
-            Vector3 playerToMouse = floorHit.point - transform.position;
-            playerToMouse.y = 0f;
-
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            playerRigidbody.MoveRotation(newRotation);
-        }
-    }
-
-    private void Animating(float h, float v) {
-        bool walking = h != 0f || v != 0f;
-        anim.SetBool("IsWalking", walking);
+    private void Animating() {
+        anim.SetBool("IsWalking", movement != Vector3.zero);
     }
 }
