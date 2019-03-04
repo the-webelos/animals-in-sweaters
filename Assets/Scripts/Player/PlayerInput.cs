@@ -5,9 +5,17 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour
 {
 	public bool useMouseLook = true;
+	public int playerIndex = 0;
 
 	int floorMask;
 	float camRayLength = 100f;
+
+	string inputHorizontalLabel;
+	string inputVerticalLabel;
+	string inputLookXLabel;
+	string inputLookYLabel;
+	string inputFire1Label;
+
 	float inputHorizontal;
 	float inputVertical;
 	float lookX;
@@ -16,11 +24,21 @@ public class PlayerInput : MonoBehaviour
 
 	private void Awake() {
 		floorMask = LayerMask.GetMask("Environment");
+
+	}
+
+	public void SetLabels()
+	{
+		inputHorizontalLabel = "Player" + playerIndex + " Horizontal";
+		inputVerticalLabel = "Player" + playerIndex + " Vertical";
+		inputLookXLabel = "Player" + playerIndex + " LookX";
+		inputLookYLabel = "Player" + playerIndex + " LookY";
+		inputFire1Label = "Player" + playerIndex + " Fire1";
 	}
 
 	private void Update() {
-		inputHorizontal = Input.GetAxisRaw("Horizontal");
-		inputVertical = Input.GetAxisRaw("Vertical");
+		inputHorizontal = Input.GetAxisRaw(inputHorizontalLabel);
+		inputVertical = Input.GetAxisRaw(inputVerticalLabel);
 
 		if (useMouseLook) {
 			Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,11 +50,11 @@ public class PlayerInput : MonoBehaviour
 				lookY = playerToMouse.z;
 			}
 		} else {
-			lookX = Input.GetAxis("LookX");
-			lookY = Input.GetAxis("LookY") * -1f;
+			lookX = Input.GetAxis(inputLookXLabel);
+			lookY = Input.GetAxis(inputLookYLabel) * -1f;
 		}
 
-		fire1 = Input.GetButton("Fire1");
+		fire1 = Input.GetButton(inputFire1Label);
 	}
 
 	public float GetHorizontal() { return inputHorizontal; }
