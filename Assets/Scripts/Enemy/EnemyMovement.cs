@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMovement : MonoBehaviour, IHitTaker
-{
+public class EnemyMovement:MonoBehaviour,IHitTaker {
     public float knockBackForce = 50f;
     public float staggerTime = 0f;
     Transform player;
@@ -16,21 +15,17 @@ public class EnemyMovement : MonoBehaviour, IHitTaker
     private Rigidbody rb;
     private float staggerTimeout = 0f;
 
-    void Awake ()
-    {
-        player = GameObject.FindGameObjectWithTag ("Player").transform;
-        playerHealth = player.GetComponent <PlayerHealth> ();
-        enemyHealth = GetComponent <EnemyHealth> ();
-        nav = GetComponent <UnityEngine.AI.NavMeshAgent> ();
+    void Awake() {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerHealth = player.GetComponent<PlayerHealth>();
+        enemyHealth = GetComponent<EnemyHealth>();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update ()
-    {
-        if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
-        {
-            if (staggerTimeout > 0)
-            {
+    void Update() {
+        if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0) {
+            if (staggerTimeout > 0) {
                 //rb.AddForce(Vector3.forward, ForceMode.Impulse);
                 //Vector3 targetPosition = (transform.position - direction).normalized * knockBackForce;
                 //Debug.Log("Current Position: " + transform.position + "  Target Position: " + targetPosition + "  Direction: " + direction);
@@ -43,29 +38,23 @@ public class EnemyMovement : MonoBehaviour, IHitTaker
                 //rb.AddForce(new Vector3(5000f, 0f, 5000f), ForceMode.Impulse);
 
                 staggerTimeout -= Time.deltaTime;
-            }
-            else
-            {
+            } else {
                 nav.enabled = true;
                 nav.SetDestination(player.position);
             }
-        }
-        else
-        {
+        } else {
             nav.enabled = false;
         }
     }
 
-    public void TakeHit(int damage, Vector3 hitPoint, Vector3 velocity, float mass)
-    {
+    public void TakeHit(int damage, Vector3 hitPoint, Vector3 velocity, float mass) {
         Debug.Log("WE MOVED!");
         nav.enabled = false;
         staggerTimeout = staggerTime;
         rb.AddForce(velocity * mass, ForceMode.Impulse);
     }
 
-    public void KnockBack(Vector3 dir)
-    {
+    public void KnockBack(Vector3 dir) {
         nav.enabled = false;
         staggerTime = 2f;
         rb.AddForce(new Vector3(15f, 0f, 15f), ForceMode.Impulse);
@@ -75,16 +64,14 @@ public class EnemyMovement : MonoBehaviour, IHitTaker
         //knockBack = true;
     }
     
-    /*private void FixedUpdate()
-    {
+    /*private void FixedUpdate() {
         if (knockBack)
         {
             nav.velocity = direction * 8;
         }
     }
 
-    IEnumerator KnockBack()
-    {
+    IEnumerator KnockBack() {
         float origSpeed = nav.speed;
         float origAngularSpeed = nav.angularSpeed;
         float origAcc = nav.acceleration;
@@ -102,8 +89,7 @@ public class EnemyMovement : MonoBehaviour, IHitTaker
         nav.acceleration = origAcc;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         if(other.name.Equals(""))
         direction = other.transform.forward;
         StartCoroutine(KnockBack());
