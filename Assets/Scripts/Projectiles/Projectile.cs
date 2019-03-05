@@ -10,9 +10,7 @@ public class Projectile : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("HIT: " + other);
 		if (other.CompareTag("Player")) {
-			Debug.Log("EXPLODE");
 			other.attachedRigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
 			Destroy(gameObject);
 		}
@@ -22,7 +20,7 @@ public class Projectile : MonoBehaviour {
 		}
 	}
 
-	private void Update() {
+	private void FixedUpdate() {
 		lifetime -= Time.deltaTime;
 
 		if (lifetime <= 0f) {
