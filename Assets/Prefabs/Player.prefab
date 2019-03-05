@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useMouseLook: 0
+  playerIndex: 0
 --- !u!114 &1253818470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5331,6 +5332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860700845}
   - component: {fileID: 1860700846}
+  - component: {fileID: 4696528827840434784}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5401,3 +5403,16 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.32802516, y: 0.73065233, z: -0.10551195}
     m_Extent: {x: 0.66185755, y: 0.8997083, z: 0.5952063}
   m_DirtyAABB: 0
+--- !u!114 &4696528827840434784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860700844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3440a0d856b914a608f45fea809a9040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 1, a: 1}

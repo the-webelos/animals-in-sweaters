@@ -24,7 +24,6 @@ public class PlayerInput : MonoBehaviour
 
 	private void Awake() {
 		floorMask = LayerMask.GetMask("Environment");
-
 	}
 
 	public void SetLabels()

@@ -26,5 +26,8 @@ public class PlayerManager : MonoBehaviour
 		}
 
 		input.SetLabels();
+
+		PlayerColor playerColor = player.GetComponentInChildren<PlayerColor>();
+		playerColor.SetColor(new Color(index * 1f, 1f, 1f, 1f));
 	}
 }
