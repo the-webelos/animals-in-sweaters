@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class PickupsManager : MonoBehaviour
 {
-	int minX = 0;
-	int minY = 0;
-	int maxX = 0;
-	int maxY = 0;
+	public GameObject[] pickups;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-//        foreach(GameObject walkableObject in GameObject.FindGameObjectsWithTag("walkable")) {
-//			Renderer r = walkableObject.GetComponent<Renderer>();
-//			for (r != null) {
-//				if (minX)
-//			    int x = r.bounds.min
-//			}
-//		}
+	Quaternion rotation;
+	float minX = 0;
+	float minZ = 0;
+	float maxX = 0;
+	float maxZ = 0;
+
+	// Start is called before the first frame update
+	void Awake()
+	{
+		foreach (GameObject walkableObject in GameObject.FindGameObjectsWithTag("Walkable")) {
+			Renderer r = walkableObject.GetComponent<Renderer>();
+			Vector3 min = r.bounds.center - r.bounds.extents;
+			Vector3 max = r.bounds.center + r.bounds.extents;
+
+			minX = min.x;
+			minZ = min.z;
+			maxX = max.x;
+			maxZ = max.z;
+		}
+
+		Invoke("Drop", 5f);
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void Drop() {
+		Vector3 placement = new Vector3(Random.Range(minX, maxX), 1f, Random.Range(minZ, maxZ));
+		placement = Quaternion.Euler(0f, 45f, 0f) * placement;
+
+		Instantiate(pickups[0], placement, Quaternion.identity);
+		Invoke("Drop", 5f);
+	}
 }
