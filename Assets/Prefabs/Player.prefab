@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1477804745}
   - component: {fileID: 1253818461}
   - component: {fileID: 1253818470}
+  - component: {fileID: 6987895679266451923}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -309,6 +310,23 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+--- !u!114 &6987895679266451923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477804744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagePerShot: 20
+  timeBetweenBullets: 0.15
+  range: 100
+  projectilePrefab: {fileID: 6524059595938715345, guid: d0e661afdc4f144df93331251500694a,
+    type: 3}
 --- !u!1 &1624137086
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +341,6 @@ GameObject:
   - component: {fileID: 1624137090}
   - component: {fileID: 1624137089}
   - component: {fileID: 1624137088}
-  - component: {fileID: 2075282980546391958}
   m_Layer: 11
   m_Name: GunBarrelEnd
   m_TagString: Untagged
@@ -5307,23 +5324,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2075282980546391958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624137086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damagePerShot: 20
-  timeBetweenBullets: 0.15
-  range: 100
-  projectilePrefab: {fileID: 6524059595938715345, guid: d0e661afdc4f144df93331251500694a,
-    type: 3}
 --- !u!1 &1860700844
 GameObject:
   m_ObjectHideFlags: 0

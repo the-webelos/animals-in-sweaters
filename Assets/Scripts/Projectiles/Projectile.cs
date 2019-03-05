@@ -49,15 +49,11 @@ public class Projectile : MonoBehaviour {
 
 		if (isLobbed) {
 			rb.useGravity = true;
-			Vector3 dir = Quaternion.AngleAxis(45, Vector3.forward) * direction ;
-			dir.Normalize();
+			Vector3 dir = Quaternion.AngleAxis(-45, transform.right) * direction ;
 			rb.AddForce(dir * fireForce, ForceMode.Impulse);
 		} else {
 			rb.useGravity = false;
-			direction.Normalize();
 			rb.AddForce(direction * fireForce, ForceMode.Force);
 		}
-
-		rb.AddForce(direction * fireForce, ForceMode.Force);
 	}
 }
