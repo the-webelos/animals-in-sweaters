@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 
-public class Bullet {
-    public Vector3 hitPoint;
-    public int hitDamage;
+public class Projectile : MonoBehaviour {
+	public int hitDamage;
+	Vector3 hitPoint;
 
-    public Bullet(int damage, Vector3 point) {
-        hitDamage = damage;
-        hitPoint = point;
-    }
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("HIT: " + other);
+		if (other.CompareTag("Player")) {
+			Debug.Log("EXPLODE");
+			other.attachedRigidbody.AddExplosionForce(1000, transform.position, 1);
+			Destroy(gameObject);
+		}
+	}
 }

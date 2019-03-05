@@ -15,12 +15,14 @@ public class PlayerInput : MonoBehaviour
 	string inputLookXLabel;
 	string inputLookYLabel;
 	string inputFire1Label;
+	string inputFire2Label;
 
 	float inputHorizontal;
 	float inputVertical;
 	float lookX;
 	float lookY;
 	bool fire1;
+	bool fire2;
 
 	private void Awake() {
 		floorMask = LayerMask.GetMask("Environment");
@@ -33,6 +35,7 @@ public class PlayerInput : MonoBehaviour
 		inputLookXLabel = "Player" + playerIndex + " LookX";
 		inputLookYLabel = "Player" + playerIndex + " LookY";
 		inputFire1Label = "Player" + playerIndex + " Fire1";
+		inputFire2Label = "Player" + playerIndex + " Fire2";
 	}
 
 	private void Update() {
@@ -54,6 +57,7 @@ public class PlayerInput : MonoBehaviour
 		}
 
 		fire1 = Input.GetButton(inputFire1Label);
+		fire2 = Input.GetButton(inputFire2Label);
 	}
 
 	public float GetHorizontal() { return inputHorizontal; }
@@ -63,4 +67,5 @@ public class PlayerInput : MonoBehaviour
 	public float GetLookY() { return lookY; }
 
 	public bool GetFire1() { return fire1; }
+	public bool GetFire2() { return fire2; }
 }

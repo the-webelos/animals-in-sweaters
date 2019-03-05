@@ -5322,6 +5322,8 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100
+  fireBallPrefab: {fileID: 3483314905776078163, guid: 406921c1c53e74930946ccd97c350467,
+    type: 3}
 --- !u!1 &1860700844
 GameObject:
   m_ObjectHideFlags: 0
