@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920475288}
   - component: {fileID: 920475289}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1477804745}
   - component: {fileID: 1253818461}
   - component: {fileID: 1253818470}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ Rigidbody:
   m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!82 &1477804746
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1624137089}
   - component: {fileID: 1624137088}
   - component: {fileID: 2075282980546391958}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GunBarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5333,7 +5333,7 @@ GameObject:
   - component: {fileID: 1860700845}
   - component: {fileID: 1860700846}
   - component: {fileID: 4696528827840434784}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

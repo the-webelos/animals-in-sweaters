@@ -1,43 +1,53 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement:MonoBehaviour {
-    public float speed = 6f;
+public class PlayerMovement : MonoBehaviour, IHitTaker
+{
+	public float speed = 6f;
 
-    Vector3 movement;
-    Animator anim;
-    Rigidbody playerRigidbody;
+	Vector3 movement;
+	Animator anim;
+	Rigidbody playerRigidbody;
 	PlayerInput playerInput;
 	int floorMask;
-    float camRayLength = 100f;
+	float camRayLength = 100f;
 
-    private void Awake() {
-        floorMask = LayerMask.GetMask("Floor");
-        anim = GetComponent<Animator>();
-        playerRigidbody = GetComponent<Rigidbody>();
+	private void Awake()
+	{
+		floorMask = LayerMask.GetMask("Floor");
+		anim = GetComponent<Animator>();
+		playerRigidbody = GetComponent<Rigidbody>();
 		playerInput = GetComponent<PlayerInput>();
 	}
 
-	private void FixedUpdate() {
-        Move(playerInput.GetHorizontal(), playerInput.GetVertical());
-        Turning(playerInput.GetLookX(), playerInput.GetLookY());
+	private void FixedUpdate()
+	{
+		Move(playerInput.GetHorizontal(), playerInput.GetVertical());
+		Turning(playerInput.GetLookX(), playerInput.GetLookY());
 		Animating();
-    }
+	}
 
-    private void Move(float h, float v) {
-        movement.Set(h, 0f, v);
-        movement = movement.normalized * speed * Time.deltaTime;
-        playerRigidbody.MovePosition(transform.position + movement);
-    }
+	private void Move(float h, float v)
+	{
+		movement.Set(h, 0f, v);
+		movement = movement.normalized * speed * Time.deltaTime;
+		playerRigidbody.MovePosition(transform.position + movement);
+	}
 
 	private void Turning(float x, float y)
 	{
 		if (System.Math.Abs(x) > double.Epsilon || System.Math.Abs(y) > double.Epsilon) {
-    		Quaternion rotation = Quaternion.LookRotation(new Vector3(x, 0f, y));
-    		playerRigidbody.MoveRotation(rotation);
-     	}
+			Quaternion rotation = Quaternion.LookRotation(new Vector3(x, 0f, y));
+			playerRigidbody.MoveRotation(rotation);
+		}
 	}
 
-    private void Animating() {
-        anim.SetBool("IsWalking", movement != Vector3.zero);
-    }
+	private void Animating()
+	{
+		anim.SetBool("IsWalking", movement != Vector3.zero);
+	}
+
+	public void TakeHit(int damage, Vector3 hitPoint, Vector3 velocity, float mass)
+	{
+		playerRigidbody.AddForce(velocity * mass, ForceMode.Impulse);
+	}
 }

@@ -62,21 +62,12 @@ public class PlayerShooting : MonoBehaviour {
         shootRay.direction = transform.forward;
 
         if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
-            //shootHit.collider.SendMessage("TakeHit", new Bullet(damagePerShot, shootHit.point), SendMessageOptions.DontRequireReceiver);
             foreach(IHitTaker hitTaker in shootHit.collider.GetComponents<IHitTaker>()) {
-                hitTaker.TakeHit(damagePerShot, shootHit.point, (shootHit.point - shootRay.origin)/Time.deltaTime, 0.2f);
-            }
-            /*EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
-            if(enemyHealth != null)
-            {
-                enemyHealth.TakeDamage (damagePerShot, shootHit.point);
-            }
+				Vector3 velocity = shootHit.point - shootRay.origin;
+				velocity.Normalize();
 
-            EnemyMovement enemyMovement = shootHit.collider.GetComponent<EnemyMovement>();
-            if (enemyMovement != null)
-            {
-                enemyMovement.KnockBack(shootRay.direction);
-            }*/
+                hitTaker.TakeHit(damagePerShot, shootHit.point, velocity*3/Time.deltaTime, 0.2f);
+            }
 
             gunLine.SetPosition(1, shootHit.point);
         } else {
