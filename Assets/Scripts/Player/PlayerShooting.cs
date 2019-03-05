@@ -11,20 +11,14 @@ public class PlayerShooting : MonoBehaviour
 	Ray shootRay = new Ray();
 	RaycastHit shootHit;
 	int shootableMask;
-	ParticleSystem gunParticles;
 	LineRenderer gunLine;
-	AudioSource gunAudio;
-	Light gunLight;
 	float effectsDisplayTime = 0.2f;
 	PlayerInput playerInput;
 
 	void Awake()
 	{
 		shootableMask = LayerMask.GetMask("Shootable");
-		gunParticles = GetComponent<ParticleSystem>();
-		gunLine = GetComponent<LineRenderer>();
-		gunAudio = GetComponent<AudioSource>();
-		gunLight = GetComponent<Light>();
+		gunLine = GetComponentInChildren<LineRenderer>();
 		playerInput = GetComponentInParent<PlayerInput>();
 	}
 
@@ -49,7 +43,6 @@ public class PlayerShooting : MonoBehaviour
 	public void DisableEffects()
 	{
 		gunLine.enabled = false;
-		gunLight.enabled = false;
 	}
 
 
@@ -57,17 +50,11 @@ public class PlayerShooting : MonoBehaviour
 	{
 		timer = 0f;
 
-		gunAudio.Play();
-
-		gunLight.enabled = true;
-
-		gunParticles.Stop();
-		gunParticles.Play();
-
 		gunLine.enabled = true;
-		gunLine.SetPosition(0, transform.position);
+		Vector3 dischardPos = transform.position + (transform.forward * .5f);
+		gunLine.SetPosition(0, dischardPos);
 
-		shootRay.origin = transform.position;
+		shootRay.origin = dischardPos;
 		shootRay.direction = transform.forward;
 
 		if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
@@ -85,14 +72,9 @@ public class PlayerShooting : MonoBehaviour
 	{
 		timer = 0f;
 
-		gunAudio.Play();
+		Vector3 dischardPos = transform.position + (transform.forward * .5f);
 
-		gunLight.enabled = true;
-
-		gunParticles.Stop();
-		gunParticles.Play();
-
-		Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
+		Projectile projectile = Instantiate(projectilePrefab, dischardPos, transform.rotation).GetComponent<Projectile>();
 		projectile.Fire(transform.forward);
 	}
 }
