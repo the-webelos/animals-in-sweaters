@@ -54,6 +54,8 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 	public void TakeHit(int damage)
 	{
+		if (isDead) { return; }
+
 		currentHealth -= damage;
 
 		//healthSlider.value = currentHealth;
@@ -64,6 +66,8 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 	void Death()
 	{
+		if (isDead) { return; }
+
 		isDead = true;
 
 		playerShooting.DisableEffects();
