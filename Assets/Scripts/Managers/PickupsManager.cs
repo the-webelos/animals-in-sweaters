@@ -6,6 +6,7 @@ public class PickupsManager : MonoBehaviour
 {
 	public GameObject[] pickups;
 
+	Quaternion rotation;
 	float minX = 0;
 	float minZ = 0;
 	float maxX = 0;
@@ -16,11 +17,8 @@ public class PickupsManager : MonoBehaviour
 	{
 		foreach (GameObject walkableObject in GameObject.FindGameObjectsWithTag("Walkable")) {
 			Renderer r = walkableObject.GetComponent<Renderer>();
-			Debug.Log(r);
 			Vector3 min = r.bounds.center - r.bounds.extents;
 			Vector3 max = r.bounds.center + r.bounds.extents;
-			Debug.Log("min: " + min);
-			Debug.Log("max: " + max);
 
 			minX = min.x;
 			minZ = min.z;
@@ -32,7 +30,10 @@ public class PickupsManager : MonoBehaviour
 	}
 
 	void Drop() {
-		Instantiate(pickups[0], new Vector3(Random.Range(minX, maxX), .3f, Random.Range(minZ, maxZ)), new Quaternion());
+		Vector3 placement = new Vector3(Random.Range(minX, maxX), 1f, Random.Range(minZ, maxZ));
+		placement = Quaternion.Euler(0f, 45f, 0f) * placement;
+
+		Instantiate(pickups[0], placement, Quaternion.identity);
 		Invoke("Drop", 5f);
 	}
 }
