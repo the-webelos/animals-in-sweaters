@@ -6,6 +6,7 @@ TagManager:
   tags:
   - DeathTrigger
   - Walkable
+  - DropArea
   layers:
   - Default
   - TransparentFX
