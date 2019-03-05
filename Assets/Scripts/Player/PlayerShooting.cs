@@ -5,7 +5,7 @@ public class PlayerShooting : MonoBehaviour
 	public int damagePerShot = 20;
 	public float timeBetweenBullets = 0.15f;
 	public float range = 100f;
-	public GameObject fireBallPrefab;
+	public GameObject projectilePrefab;
 
 	float timer;
 	Ray shootRay = new Ray();
@@ -72,10 +72,7 @@ public class PlayerShooting : MonoBehaviour
 
 		if (Physics.Raycast(shootRay, out shootHit, range, shootableMask)) {
 			foreach (IHitTaker hitTaker in shootHit.collider.GetComponents<IHitTaker>()) {
-				Vector3 velocity = shootHit.point - shootRay.origin;
-				velocity.Normalize();
-
-				hitTaker.TakeHit(damagePerShot, shootHit.point, velocity * 3 / Time.deltaTime, 0.2f);
+				hitTaker.TakeHit(damagePerShot);
 			}
 
 			gunLine.SetPosition(1, shootHit.point);
@@ -95,10 +92,7 @@ public class PlayerShooting : MonoBehaviour
 		gunParticles.Stop();
 		gunParticles.Play();
 
-		GameObject fireball = Instantiate(fireBallPrefab, transform.position, transform.rotation);
-
-		Rigidbody rb = fireball.GetComponent<Rigidbody>();
-		rb.AddForce(transform.forward * 30f, ForceMode.Force);
-		Destroy(fireball, 3f);
+		Projectile projectile = Instantiate(projectilePrefab, transform.position, transform.rotation).GetComponent<Projectile>();
+		projectile.Fire(transform.forward);
 	}
 }

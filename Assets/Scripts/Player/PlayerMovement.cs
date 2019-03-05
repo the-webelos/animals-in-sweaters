@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour, IHitTaker
+public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 6f;
 
@@ -44,10 +44,5 @@ public class PlayerMovement : MonoBehaviour, IHitTaker
 	private void Animating()
 	{
 		anim.SetBool("IsWalking", movement != Vector3.zero);
-	}
-
-	public void TakeHit(int damage, Vector3 hitPoint, Vector3 velocity, float mass)
-	{
-		playerRigidbody.AddForce(velocity * mass, ForceMode.Impulse);
 	}
 }

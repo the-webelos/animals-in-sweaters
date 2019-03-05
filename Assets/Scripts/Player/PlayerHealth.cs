@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IHitTaker
 {
 	public int startingHealth = 100;
 	public int currentHealth;
@@ -52,17 +52,13 @@ public class PlayerHealth : MonoBehaviour
 	}
 
 
-	public void TakeDamage(int amount)
+	public void TakeHit(int damage)
 	{
-		currentHealth -= amount;
+		currentHealth -= damage;
 
 		//healthSlider.value = currentHealth;
 
 		playerAudio.Play();
-
-		if (currentHealth <= 0 && !isDead) {
-			Death();
-		}
 	}
 
 
@@ -79,11 +75,5 @@ public class PlayerHealth : MonoBehaviour
 
 		playerMovement.enabled = false;
 		playerShooting.enabled = false;
-	}
-
-
-	public void RestartLevel()
-	{
-		SceneManager.LoadScene(0);
 	}
 }
