@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerShooting : MonoBehaviour
+public class PlayerShooting : MonoBehaviour, IPickupTaker
 {
 	public int damagePerShot = 20;
 	public float timeBetweenBullets = 0.15f;
@@ -72,9 +72,13 @@ public class PlayerShooting : MonoBehaviour
 	{
 		timer = 0f;
 
-		Vector3 dischardPos = transform.position + (transform.forward * .8f) + (transform.up * .8f);
+		Vector3 dischardPos = transform.position + (transform.forward * 2f) + (transform.up * .8f);
 
 		Projectile projectile = Instantiate(projectilePrefab, dischardPos, transform.rotation).GetComponent<Projectile>();
 		projectile.Fire(transform.forward);
+	}
+
+	public void PickupProjectile(GameObject prefab) {
+		projectilePrefab = prefab;
 	}
 }

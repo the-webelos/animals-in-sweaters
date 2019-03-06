@@ -3,6 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 6f;
+    public float jumpMultiplier = 5f;
 
 	Vector3 movement;
 	Animator anim;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		Move(playerInput.GetHorizontal(), playerInput.GetVertical());
 		Turning(playerInput.GetLookX(), playerInput.GetLookY());
+        Jump();
 		Animating();
 	}
 
@@ -40,8 +42,20 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	private void Animating()
+    private void Jump()
+    {
+        if(playerInput.GetJump() && System.Math.Abs(playerRigidbody.velocity.y) <= double.Epsilon)
+        {
+            playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Impulse);
+        }
+        else
+        {
+            Debug.Log("velocity y = " + playerRigidbody.velocity.y);
+        }
+    }
+
+    private void Animating()
 	{
-		anim.SetBool("IsWalking", movement != Vector3.zero);
-	}
+        anim.SetBool("IsWalking", movement != Vector3.zero);
+    }
 }

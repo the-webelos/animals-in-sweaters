@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DeathTrigger
   - Walkable
+  - DropArea
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -18,10 +20,10 @@ TagManager:
   - PostProcessing
   - Floor
   - Environment
+  - Pickups
   - Shootable
   - Projectile
-  - 
-  - 
+  - Characters
   - 
   - 
   - 
