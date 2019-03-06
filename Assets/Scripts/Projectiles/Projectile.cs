@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour {
 	private void Explode() {
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
-		gameObject.GetComponent<Light>().enabled = true;
+//		gameObject.GetComponent<Light>().enabled = true;
 
 		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) { 
      		Rigidbody r = h.GetComponent<Rigidbody>();
