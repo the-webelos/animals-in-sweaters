@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  jumpMultiplier: 8
 --- !u!114 &1253818461
 MonoBehaviour:
   m_ObjectHideFlags: 0
