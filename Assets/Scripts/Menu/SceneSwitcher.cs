@@ -6,6 +6,14 @@ public class SceneSwitcher:MonoBehaviour {
         SceneManager.LoadScene(level);
     }
 
+    public void SelectCharacters() {
+        SceneManager.LoadScene("character-selection");
+    }
+
+    public void MainMenu() {
+        SceneManager.LoadScene("main-menu");
+    }
+
     public void Quit() {
         #if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
