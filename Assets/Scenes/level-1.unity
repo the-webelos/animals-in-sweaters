@@ -502,8 +502,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickups:
+  - {fileID: 2130138189103831292, guid: af3802862bb8d484c9f9688e86e6c31f, type: 3}
+  - {fileID: 2130138189103831292, guid: b8d92c83c7414493681aef1087ed6f15, type: 3}
   - {fileID: 2130138189103831292, guid: 34edbebf823194e3cb37bd7c1e48d661, type: 3}
-  spawnTime: 5
+  spawnTime: 15
 --- !u!1 &1463911481
 GameObject:
   m_ObjectHideFlags: 0

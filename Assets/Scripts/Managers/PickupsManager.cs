@@ -13,7 +13,7 @@ public class PickupsManager : MonoBehaviour
 	{
 		dropArea = GameObject.FindGameObjectWithTag("DropArea");
 
-		Invoke("Drop", spawnTime);
+		Invoke("Drop", 1f);
 	}
 
 	void Drop() {
