@@ -3,6 +3,8 @@
 public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 6f;
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
 
 	Vector3 movement;
 	Animator anim;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		Move(playerInput.GetHorizontal(), playerInput.GetVertical());
 		Turning(playerInput.GetLookX(), playerInput.GetLookY());
+        Jump();
 		Animating();
 	}
 
@@ -40,8 +43,16 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	private void Animating()
+    private void Jump()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) && playerRigidbody.velocity.y == 0)
+        {
+            playerRigidbody.AddForce(Vector3.up * 300);
+        }
+    }
+
+    private void Animating()
 	{
-		anim.SetBool("IsWalking", movement != Vector3.zero);
-	}
+        anim.SetBool("IsWalking", movement != Vector3.zero);
+    }
 }
