@@ -160,7 +160,7 @@ MonoBehaviour:
   explodeOnContact: 0
   hitDamage: 30
   explosionForce: 1000
-  explosionRadius: 5
+  explosionRadius: 2
   fireForce: 40
   fireAngle: 45
   lifetime: 4

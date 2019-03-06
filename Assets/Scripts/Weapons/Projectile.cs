@@ -13,10 +13,6 @@ public class Projectile : MonoBehaviour, IWeapon {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		foreach (IHitTaker hitTaker in other.GetComponents<IHitTaker>()) {
-			hitTaker.TakeHit(hitDamage);
-		}
-
 		if (explodeOnContact) {
 			Explode();
 		}
@@ -30,17 +26,29 @@ public class Projectile : MonoBehaviour, IWeapon {
 		}
 	}
 
-	private void Explode() {
+	public void Explode() {
+		lifetime = 0f;
+
 		if (explosionSystem) { 
 	    	GameObject explosion = Instantiate(explosionSystem, transform.position, Quaternion.identity);
     	}
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
-		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) { 
-     		Rigidbody r = h.GetComponent<Rigidbody>();
+		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) {
+			Rigidbody r = h.GetComponent<Rigidbody>();
 			if (r != null && !r.Equals(rb)) {
 				r.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+			}
+
+			foreach (IHitTaker hitTaker in h.GetComponents<IHitTaker>()) {
+				hitTaker.TakeHit(hitDamage);
+			}
+
+			foreach (Projectile projectile in h.GetComponents<Projectile>()) {
+				if (projectile.lifetime > 0f) {
+					projectile.Explode();
+				}
 			}
 		}
 
