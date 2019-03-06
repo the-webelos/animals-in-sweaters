@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4168153505308561920}
   - component: {fileID: 4157202422961514062}
   - component: {fileID: 4151646301166317822}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Soccer Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8026886051129987455}
   - component: {fileID: 4975391959093544772}
   - component: {fileID: 382699515667196939}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: GrenadeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +187,10 @@ PrefabInstance:
     - target: {fileID: 1293336391459690, guid: fd64a30dd68aeee438e405bbfa47eb61, type: 3}
       propertyPath: m_Name
       value: Smoke03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293336391459690, guid: fd64a30dd68aeee438e405bbfa47eb61, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4313786072988970, guid: fd64a30dd68aeee438e405bbfa47eb61, type: 3}
       propertyPath: m_LocalPosition.x

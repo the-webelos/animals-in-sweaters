@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1348037293333486000}
   - component: {fileID: 2903508110986251037}
   - component: {fileID: 7981841312066466963}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4072232093711853002}
   - component: {fileID: 3748125991242343877}
   - component: {fileID: 9003931353353547820}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1273710762483042, guid: 33e4a66c6340c4ebe8ba44426af2c943, type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4150377031524958, guid: 33e4a66c6340c4ebe8ba44426af2c943, type: 3}
       propertyPath: m_LocalPosition.x

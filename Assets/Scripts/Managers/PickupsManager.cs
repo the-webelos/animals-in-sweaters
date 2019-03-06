@@ -19,9 +19,7 @@ public class PickupsManager : MonoBehaviour
 	void Drop() {
 		Vector3 placement = dropArea.transform.TransformPoint(Random.value-.5f, Random.value-.5f, -.5f);
 
-		Debug.Log("DROP: " + placement);
-
-		Instantiate(pickups[0], placement, Quaternion.identity);
+		Instantiate(pickups[Random.Range(0, pickups.Length)], placement, Quaternion.identity);
 		Invoke("Drop", spawnTime);
 	}
 }

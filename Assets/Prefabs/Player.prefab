@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920475288}
   - component: {fileID: 920475289}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1253818461}
   - component: {fileID: 1253818470}
   - component: {fileID: 6987895679266451923}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100
-  projectilePrefab: {fileID: 4625225847469412569, guid: 938bea1d4caa54745bba66d5e4ecac82,
+  projectilePrefab: {fileID: 4255477315306736078, guid: 2b60e386a78f0429bb7445397ce04993,
     type: 3}
 --- !u!1 &1624137086
 GameObject:
@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 1624137090}
   - component: {fileID: 1624137089}
   - component: {fileID: 1624137088}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: GunBarrelEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5335,7 +5335,7 @@ GameObject:
   - component: {fileID: 1860700845}
   - component: {fileID: 1860700846}
   - component: {fileID: 4696528827840434784}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
