@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
 public class Projectile : MonoBehaviour {
+	public GameObject explosionSystem;
+	public bool explodeOnContact = true;
+
 	public int hitDamage;
 	public int explosionForce;
 	public int explosionRadius;
@@ -10,13 +13,13 @@ public class Projectile : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player")) {
-			other.attachedRigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
-			Destroy(gameObject);
-		}
-
 		foreach (IHitTaker hitTaker in other.GetComponents<IHitTaker>()) {
 			hitTaker.TakeHit(hitDamage);
+		}
+
+		if (explodeOnContact) {
+			Explode();
+			Destroy(gameObject);
 		}
 	}
 
@@ -29,9 +32,11 @@ public class Projectile : MonoBehaviour {
 	}
 
 	private void Explode() {
-		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+		if (explosionSystem) { 
+	    	GameObject explosion = Instantiate(explosionSystem, transform.position, Quaternion.identity);
+    	}
 
-//		gameObject.GetComponent<Light>().enabled = true;
+		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
 		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) { 
      		Rigidbody r = h.GetComponent<Rigidbody>();
@@ -48,7 +53,7 @@ public class Projectile : MonoBehaviour {
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
 		rb.useGravity = true;
-	    Vector3 dir = Quaternion.AngleAxis(fireAngle, transform.right) * direction ;
+	    Vector3 dir = Quaternion.AngleAxis(fireAngle*-1f, transform.right) * direction ;
 		rb.AddForce(dir * fireForce, ForceMode.Impulse);
 	}
 }

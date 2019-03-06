@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8285244545811798293}
   - component: {fileID: 3926952805644564961}
   - component: {fileID: 611361342204223857}
-  - component: {fileID: 8291880056844777327}
-  - component: {fileID: 4317525789829804212}
   m_Layer: 12
   m_Name: Rocket
   m_TagString: Untagged
@@ -49,6 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c69250c8f314d408f2575b0f29c2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSystem: {fileID: 1685874166552172, guid: 88de15382010c434488c59d3f5f12480,
+    type: 3}
+  explodeOnContact: 1
   hitDamage: 25
   explosionForce: 500
   explosionRadius: 2
@@ -85,58 +86,6 @@ CapsuleCollider:
   m_Height: 0.9
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!108 &8291880056844777327
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625225847469412569}
-  m_Enabled: 0
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!114 &4317525789829804212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4625225847469412569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef0c25ffd48b4988b6fb46a5b3e7937, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionSystem: {fileID: 1685874166552172, guid: 88de15382010c434488c59d3f5f12480,
-    type: 3}
 --- !u!1 &6910805173524273100
 GameObject:
   m_ObjectHideFlags: 0
