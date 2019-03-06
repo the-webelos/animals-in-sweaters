@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectilePickup : MonoBehaviour
+public class WeaponPickup : MonoBehaviour
 {
 	public GameObject pickupPrefab;
 
@@ -10,7 +10,7 @@ public class ProjectilePickup : MonoBehaviour
 		IPickupTaker taker = other.GetComponentInChildren<IPickupTaker>();
 
 		if (taker != null) {
-			taker.PickupProjectile(pickupPrefab);
+			taker.PickupWeapon(pickupPrefab);
 
 			Destroy(gameObject);
 		}

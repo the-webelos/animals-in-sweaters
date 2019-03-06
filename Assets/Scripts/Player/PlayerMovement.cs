@@ -48,10 +48,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Impulse);
         }
-        else
-        {
-            Debug.Log("velocity y = " + playerRigidbody.velocity.y);
-        }
     }
 
     private void Animating()

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1477804745}
   - component: {fileID: 1253818461}
   - component: {fileID: 1253818470}
-  - component: {fileID: 6987895679266451923}
+  - component: {fileID: 7893425090696523118}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -311,7 +311,7 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
---- !u!114 &6987895679266451923
+--- !u!114 &7893425090696523118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -320,14 +320,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477804744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c63be2a8918c741863160b9d9da122, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7076493a1944efaa6124ba5ec2676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerShot: 20
-  timeBetweenBullets: 0.15
-  range: 100
-  projectilePrefab: {fileID: 4255477315306736078, guid: 2b60e386a78f0429bb7445397ce04993,
+  timeBetweenAttacks: 0.15
+  primaryAttackPrefab: {fileID: 452556528854107821, guid: 9a69952c04cf643c4b671dba462716e4,
     type: 3}
+  secondaryAttackPrefab: {fileID: 0}
 --- !u!1 &1624137086
 GameObject:
   m_ObjectHideFlags: 0

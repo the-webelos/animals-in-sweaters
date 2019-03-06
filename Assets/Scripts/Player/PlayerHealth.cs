@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 	Animator anim;
 	AudioSource playerAudio;
 	PlayerMovement playerMovement;
-	PlayerShooting playerShooting;
+	PlayerAttack playerAttack;
 	bool isDead;
 
 	void Awake()
@@ -26,13 +26,12 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 		anim = GetComponent<Animator>();
 		playerAudio = GetComponent<AudioSource>();
 		playerMovement = GetComponent<PlayerMovement>();
-		playerShooting = GetComponentInChildren<PlayerShooting>();
+		playerAttack = GetComponentInChildren<PlayerAttack>();
 		currentHealth = startingHealth;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("OTHER TAGS: " + other.tag);
 		if (other.tag == "DeathTrigger") {
 			currentHealth = 0;
 		}
@@ -54,6 +53,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 	public void TakeHit(int damage)
 	{
+		Debug.Log("TAKE HIT");
 		if (isDead) { return; }
 
 		currentHealth -= damage;
@@ -70,14 +70,12 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 		isDead = true;
 
-		playerShooting.DisableEffects();
-
 		anim.SetTrigger("Die");
 
 		playerAudio.clip = deathClip;
 		playerAudio.Play();
 
 		playerMovement.enabled = false;
-		playerShooting.enabled = false;
+		playerAttack.enabled = false;
 	}
 }

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : MonoBehaviour, IWeapon {
 	public GameObject explosionSystem;
 	public bool explodeOnContact = true;
 
 	public int hitDamage;
 	public int explosionForce;
-	public int explosionRadius;
+	public float explosionRadius;
 	public float fireForce;
 	public float fireAngle = 0f;
 	public float lifetime = 3f;
@@ -18,8 +18,8 @@ public class Projectile : MonoBehaviour {
 		}
 
 		if (explodeOnContact) {
+			Debug.Log("EXPLODE CONTACT");
 			Explode();
-			Destroy(gameObject);
 		}
 	}
 
@@ -41,19 +41,22 @@ public class Projectile : MonoBehaviour {
 		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) { 
      		Rigidbody r = h.GetComponent<Rigidbody>();
 			if (r != null && !r.Equals(rb)) {
+				Debug.Log("EXPLOSION FORCE");
 				r.AddExplosionForce(explosionForce, transform.position, explosionRadius);
 			}
 		}
 
-		Destroy(gameObject, .5f);
+		Destroy(gameObject);
 	}
 
-	public void Fire(Vector3 direction)
+	public void Attack()
 	{
+		transform.position += (transform.forward * 1f) + (transform.up * .5f);
+
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
 		rb.useGravity = true;
-	    Vector3 dir = Quaternion.AngleAxis(fireAngle*-1f, transform.right) * direction ;
+	    Vector3 dir = Quaternion.AngleAxis(fireAngle*-1f, transform.right) * transform.forward ;
 		rb.AddForce(dir * fireForce, ForceMode.Impulse);
 	}
 }
