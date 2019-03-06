@@ -102,8 +102,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6524059595938715345}
   serializedVersion: 2
-  m_Mass: 0.2
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 0.05
   m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   hitDamage: 30
   explosionForce: 1000
   explosionRadius: 5
-  fireForce: 2
+  fireForce: 80
   isLobbed: 1
   lifetime: 6
 --- !u!108 &9063393823185703071

@@ -72,7 +72,7 @@ public class PlayerShooting : MonoBehaviour
 	{
 		timer = 0f;
 
-		Vector3 dischardPos = transform.position + (transform.forward * .8f) + (transform.up * .8f);
+		Vector3 dischardPos = transform.position + (transform.forward * 2f) + (transform.up * .8f);
 
 		Projectile projectile = Instantiate(projectilePrefab, dischardPos, transform.rotation).GetComponent<Projectile>();
 		projectile.Fire(transform.forward);

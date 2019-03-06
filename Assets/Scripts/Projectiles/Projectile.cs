@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour {
 	public int explosionForce;
 	public int explosionRadius;
 	public float fireForce;
-	public bool isLobbed = false;
+	public float fireAngle = 0f;
 	public float lifetime = 3f;
 
 	private void OnTriggerEnter(Collider other)
@@ -47,13 +47,8 @@ public class Projectile : MonoBehaviour {
 	{
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
-		if (isLobbed) {
-			rb.useGravity = true;
-			Vector3 dir = Quaternion.AngleAxis(-45, transform.right) * direction ;
-			rb.AddForce(dir * fireForce, ForceMode.Impulse);
-		} else {
-			rb.useGravity = false;
-			rb.AddForce(direction * fireForce, ForceMode.Force);
-		}
+		rb.useGravity = true;
+	    Vector3 dir = Quaternion.AngleAxis(fireAngle, transform.right) * direction ;
+		rb.AddForce(dir * fireForce, ForceMode.Impulse);
 	}
 }

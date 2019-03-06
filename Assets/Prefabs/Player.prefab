@@ -325,7 +325,7 @@ MonoBehaviour:
   damagePerShot: 20
   timeBetweenBullets: 0.15
   range: 100
-  projectilePrefab: {fileID: 3483314905776078163, guid: 406921c1c53e74930946ccd97c350467,
+  projectilePrefab: {fileID: 4625225847469412569, guid: 938bea1d4caa54745bba66d5e4ecac82,
     type: 3}
 --- !u!1 &1624137086
 GameObject:
