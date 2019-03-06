@@ -28,8 +28,8 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
 		timer = 0f;
 
 		if (weaponPrefab != null) {
-			IWeapon weapon = Instantiate(weaponPrefab, transform.position, transform.rotation).GetComponent<IWeapon>();
-			weapon.Attack();
+			GameObject weapon = Instantiate(weaponPrefab, transform.position, transform.rotation);
+			weapon.GetComponent<IWeapon>().Attack();
 		}
 	}
 

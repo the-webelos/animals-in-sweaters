@@ -18,7 +18,6 @@ public class Projectile : MonoBehaviour, IWeapon {
 		}
 
 		if (explodeOnContact) {
-			Debug.Log("EXPLODE CONTACT");
 			Explode();
 		}
 	}
@@ -41,7 +40,6 @@ public class Projectile : MonoBehaviour, IWeapon {
 		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) { 
      		Rigidbody r = h.GetComponent<Rigidbody>();
 			if (r != null && !r.Equals(rb)) {
-				Debug.Log("EXPLOSION FORCE");
 				r.AddExplosionForce(explosionForce, transform.position, explosionRadius);
 			}
 		}
