@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/main-menu.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/fa0913115ac1d4fba8b9d10280f4b04d
     guid: fa0913115ac1d4fba8b9d10280f4b04d
   - enabled: 1
     path: Assets/Scenes/level-1.unity
     guid: e789de06cf3fecb438336f1e06581419
+  - enabled: 1
+    path: Assets/Scenes/main-menu.unity
+    guid: edf584c9335d14f7f9d475bfa76d37e1
+  - enabled: 1
+    path: Assets/Scenes/character-selection.unity
+    guid: faa24bf322d9e40cb8b09cf2a9319ab4
   m_configObjects: {}

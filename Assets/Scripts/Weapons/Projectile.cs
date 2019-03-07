@@ -57,7 +57,7 @@ public class Projectile : MonoBehaviour, IWeapon {
 
 	public void Attack()
 	{
-		transform.position += (transform.forward * 1f) + (transform.up * .5f);
+		transform.position += (transform.forward * 2f) + (transform.up * .5f);
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 
