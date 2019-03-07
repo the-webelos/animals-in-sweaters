@@ -148,8 +148,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477804744}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.1
+  m_Mass: 10
+  m_Drag: 1
   m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 150
   jumpMultiplier: 8
 --- !u!114 &1253818461
 MonoBehaviour:
@@ -326,7 +326,8 @@ MonoBehaviour:
   timeBetweenAttacks: 0.15
   primaryAttackPrefab: {fileID: 452556528854107821, guid: 9a69952c04cf643c4b671dba462716e4,
     type: 3}
-  secondaryAttackPrefab: {fileID: 0}
+  secondaryAttackPrefab: {fileID: 4625225847469412569, guid: 938bea1d4caa54745bba66d5e4ecac82,
+    type: 3}
 --- !u!1 &1624137086
 GameObject:
   m_ObjectHideFlags: 0

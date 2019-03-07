@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
 	public float speed = 6f;
     public float jumpMultiplier = 5f;
 
-	Vector3 movement;
 	Animator anim;
 	Rigidbody playerRigidbody;
 	PlayerInput playerInput;
@@ -29,9 +28,13 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Move(float h, float v)
 	{
-		movement.Set(h, 0f, v);
-		movement = movement.normalized * speed * Time.deltaTime;
-		playerRigidbody.MovePosition(transform.position + movement);
+		if (System.Math.Abs(h) > double.Epsilon || System.Math.Abs(v) > double.Epsilon) {
+			Vector3 direction = new Vector3(h, 0f, v).normalized * speed;
+			playerRigidbody.AddForce(direction, ForceMode.Acceleration);
+		}
+//		movement.Set(h, 0f, v);
+//		movement = movement.normalized * speed * Time.deltaTime;
+//		playerRigidbody.MovePosition(transform.position + movement);
 	}
 
 	private void Turning(float x, float y)
@@ -44,14 +47,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if(playerInput.GetJump() && System.Math.Abs(playerRigidbody.velocity.y) <= double.Epsilon)
-        {
-            playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Impulse);
+//        if(playerInput.GetJump() && System.Math.Abs(playerRigidbody.velocity.y) <= double.Epsilon)
+		if (playerInput.GetJump()) {
+    		playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Acceleration);
         }
     }
 
     private void Animating()
 	{
-        anim.SetBool("IsWalking", movement != Vector3.zero);
+		anim.SetBool("IsWalking", Mathf.Abs(playerRigidbody.velocity.x) > .01f || Mathf.Abs(playerRigidbody.velocity.z) > .01f);
     }
 }
