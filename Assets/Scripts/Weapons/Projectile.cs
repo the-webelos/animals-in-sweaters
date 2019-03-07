@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour, IWeapon {
 		foreach (Collider h in UnityEngine.Physics.OverlapSphere(transform.position, explosionRadius)) {
 			Rigidbody r = h.GetComponent<Rigidbody>();
 			if (r != null && !r.Equals(rb)) {
-				r.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+				r.AddExplosionForce(explosionForce, transform.position, explosionRadius, 0.0f, ForceMode.Impulse);
 			}
 
 			foreach (IHitTaker hitTaker in h.GetComponents<IHitTaker>()) {
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour, IWeapon {
 			}
 		}
 
-		Destroy(gameObject);
+			Destroy(gameObject);
 	}
 
 	public void Attack()
