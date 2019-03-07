@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/fa0913115ac1d4fba8b9d10280f4b04d
+    path: 
     guid: fa0913115ac1d4fba8b9d10280f4b04d
   - enabled: 1
     path: Assets/Scenes/level-1.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/character-selection.unity
     guid: faa24bf322d9e40cb8b09cf2a9319ab4
+  - enabled: 1
+    path: Assets/Scenes/change-settings.unity
+    guid: d54e0bc28f9c8480198ddb91835839f2
   m_configObjects: {}
