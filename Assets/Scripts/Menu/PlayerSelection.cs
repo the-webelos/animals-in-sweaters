@@ -31,5 +31,7 @@ public class PlayerSelection : MonoBehaviour {
     private void ChangeCurrentPlayer(int index) {
         currentPlayer = Instantiate(players[index].gameObject, transform.position, transform.rotation);
         currentPlayer.transform.localScale *= 3;
+        PlayerColor playerColor = currentPlayer.GetComponentInChildren<PlayerColor>();
+        playerColor.SetColor(new Color(player * 1f, 1f, 1f, 1f));
     }
 }
