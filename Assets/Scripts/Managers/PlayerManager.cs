@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-	public GameObject playerPrefab;
+    public static GameObject player1Prefab;
+    public static GameObject player2Prefab;
+
+    public GameObject playerPrefab;
 	public Transform[] spawnPoints;
 
 	void Start()
@@ -16,7 +19,7 @@ public class PlayerManager : MonoBehaviour
 
 	void SpawnPlayer(Transform spawnPoint, int index)
 	{
-		GameObject player = Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
+		GameObject player = Instantiate(index == 0 ? player1Prefab : player2Prefab, spawnPoint.position, spawnPoint.rotation);
 		PlayerInput input = player.GetComponent<PlayerInput>();
 		input.playerIndex = index;
 		if (index == 0) {
@@ -30,4 +33,11 @@ public class PlayerManager : MonoBehaviour
 		PlayerColor playerColor = player.GetComponentInChildren<PlayerColor>();
 		playerColor.SetColor(new Color(index * 1f, 1f, 1f, 1f));
 	}
+
+    public void UpdatePlayerPrefabs(int player, GameObject prefab) {
+        if (player == 0)
+            player1Prefab = prefab;
+        if (player == 1)
+            player2Prefab = prefab;
+    }
 }
