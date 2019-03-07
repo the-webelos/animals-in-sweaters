@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour {
 	public Transform[] spawnPoints;
 
     void Start() {
-        Debug.Log("Spawning " + GameManager.instance.playerPrefabs.ToString());
         for (int i = 0; i < spawnPoints.Length; i++) { 
             SpawnPlayer(spawnPoints[i], i, GameManager.instance.playerPrefabs[i]);
         }
