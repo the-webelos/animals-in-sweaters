@@ -6,7 +6,12 @@ public class SceneSwitcher:MonoBehaviour {
         SceneManager.LoadScene(level);
     }
 
-    public void SelectCharacters() {
+	public void SelectStage()
+	{
+		SceneManager.LoadScene("stage-select");
+	}
+
+	public void SelectCharacters() {
         SceneManager.LoadScene("character-selection");
     }
 
