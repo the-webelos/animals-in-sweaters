@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour {
 
     void Start() {
         for (int i = 0; i < spawnPoints.Length; i++) { 
-            SpawnPlayer(spawnPoints[i], i, GameManager.instance.playerPrefabs[i]);
+            SpawnPlayer(spawnPoints[i], i, GameManager.instance.GetPlayerPrefab(i));
         }
     }
 

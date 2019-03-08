@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
-  players:
+  characterPrefabs:
   - {fileID: 1477804744, guid: ef74c4571af6e49378c18646827eded2, type: 3}
   - {fileID: 1941304552, guid: ce3f17183ed5fa3468610632a353c83c, type: 3}

@@ -51,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 1941304552}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: be66986effd141b4992d2d78be127139, type: 3}
-  m_Controller: {fileID: 9100000, guid: eb502931479bb427da13c9d416f34ebe, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6a4e8b24111754b0ba0ea57571ca284b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -68,9 +68,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941304552}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0.1
-  m_AngularDrag: 0.1
+  m_Mass: 10
+  m_Drag: 1
+  m_AngularDrag: Infinity
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -211,8 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  jumpMultiplier: 5
+  speed: 150
+  jumpMultiplier: 15
 --- !u!114 &6180440698375145302
 MonoBehaviour:
   m_ObjectHideFlags: 0

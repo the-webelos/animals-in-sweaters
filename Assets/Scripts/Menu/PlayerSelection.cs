@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class PlayerSelection : MonoBehaviour {
     public int player;
-    public GameObject[] players;
-    private GameObject currentPlayer;
-    private int selectionIndex = 0;
+    public GameObject[] characterPrefabs;
+    private GameObject currentCharacter;
+    private int selectionIndex;
 
     private void Awake() {
-        ChangeCurrentPlayer(selectionIndex);
-        ChangePlayerPrefab(selectionIndex);
+		Select(0);
     }
 
     public void Select(int index) {
-        if (index == selectionIndex || index < 0 || players.Length <= index)
-            return;
+		if (index < 0 || characterPrefabs.Length <= index) {
+			return;
+		}
 
         selectionIndex = index;
 
-        Destroy(currentPlayer);
-        ChangeCurrentPlayer(selectionIndex);
-        ChangePlayerPrefab(selectionIndex);
+		if (currentCharacter != null) {
+			Destroy(currentCharacter);
+		}
+
+        ChangeCurrentSelection(selectionIndex);
+        SetPlayerPrefab(selectionIndex);
     }
 
-    private void ChangePlayerPrefab(int index) {
-        GameManager.instance.ChangePlayerPrefab(player, players[index]);
+    private void SetPlayerPrefab(int index) {
+        GameManager.instance.ChangePlayerPrefab(player, characterPrefabs[index]);
     }
 
-    private void ChangeCurrentPlayer(int index) {
-        currentPlayer = Instantiate(players[index].gameObject, transform.position, transform.rotation);
-        currentPlayer.transform.localScale *= 3;
-        PlayerColor playerColor = currentPlayer.GetComponentInChildren<PlayerColor>();
+    private void ChangeCurrentSelection(int index) {
+        currentCharacter = Instantiate(characterPrefabs[index], transform.position, transform.rotation);
+        currentCharacter.transform.localScale *= 3;
+        PlayerColor playerColor = currentCharacter.GetComponentInChildren<PlayerColor>();
         playerColor.SetColor(new Color(player * 1f, 1f, 1f, 1f));
     }
 }

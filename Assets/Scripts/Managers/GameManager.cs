@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     public PlayerManager playerManager;
     public int numberOfPlayers = 2;
 
-    public GameObject[] playerPrefabs;
+    GameObject[] playerPrefabs;
 
     void Awake() {
         if (instance == null) {
@@ -24,6 +24,12 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ChangePlayerPrefab(int player, GameObject prefab) {
+		Debug.Log("Set Prefab " + player + " " + prefab.name);
         instance.playerPrefabs[player] = prefab;
     }
+
+	public GameObject GetPlayerPrefab(int index) {
+		return instance.playerPrefabs[index];
+
+	}
 }
