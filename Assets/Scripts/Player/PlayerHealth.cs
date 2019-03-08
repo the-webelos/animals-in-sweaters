@@ -4,8 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 
-public class PlayerHealth : MonoBehaviour, IHitTaker
-{
+public class PlayerHealth : MonoBehaviour, IHitTaker {
 	public int startingHealth = 100;
 	public int currentHealth;
 	//public Slider healthSlider;
@@ -14,15 +13,13 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-
 	Animator anim;
 	AudioSource playerAudio;
 	PlayerMovement playerMovement;
 	PlayerAttack playerAttack;
 	bool isDead;
 
-	void Awake()
-	{
+	void Awake() {
 		anim = GetComponent<Animator>();
 		playerAudio = GetComponent<AudioSource>();
 		playerMovement = GetComponent<PlayerMovement>();
@@ -30,16 +27,14 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 		currentHealth = startingHealth;
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
+	void OnTriggerEnter(Collider other) {
 		if (other.tag == "DeathTrigger") {
 			currentHealth = 0;
 		}
 	}
 
 
-	void Update()
-	{
+	void Update() {
 		//if (damaged) {
 		//    damageImage.color = flashColour;
 		//} else {
@@ -51,8 +46,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 	}
 
 
-	public void TakeHit(int damage)
-	{
+	public void TakeHit(int damage) {
 		if (isDead) { return; }
 
 		currentHealth -= damage;
@@ -63,8 +57,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 	}
 
 
-	void Death()
-	{
+	void Death() {
 		if (isDead) { return; }
 
 		isDead = true;

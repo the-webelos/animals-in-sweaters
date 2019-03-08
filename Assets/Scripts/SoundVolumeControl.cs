@@ -19,13 +19,11 @@ public class SoundVolumeControl : MonoBehaviour {
         sfxAudioSrc.volume = sfxVolume;
     }
 
-    public void SetMusicVolume(float vol)
-    {
+    public void SetMusicVolume(float vol) {
         musicVolume = vol;
     }
 
-    public void SetSfxVolume(float vol)
-    {
+    public void SetSfxVolume(float vol) {
         sfxVolume = vol;
     }
 

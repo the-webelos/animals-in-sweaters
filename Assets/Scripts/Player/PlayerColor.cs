@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColor : MonoBehaviour
-{
+public class PlayerColor : MonoBehaviour {
 	public Color color = new Color(1f, 0f, 0f, 1f);
 
 	void Start() {

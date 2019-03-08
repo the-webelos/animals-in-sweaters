@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
     }
 
 	public GameObject GetPlayerPrefab(int index) {
-		return instance.playerPrefabs[index];
-
+        return instance.playerPrefabs[index];
 	}
 }

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelIntro : MonoBehaviour
-{
+public class LevelIntro : MonoBehaviour {
 	public float introLength = 2f;
 	public float rotateAngle = 360f;
 	public float zoomRatio = 3f;
@@ -16,8 +15,7 @@ public class LevelIntro : MonoBehaviour
 	float zoomDistance;
 	Vector3 origAngle;
 
-	void Awake()
-    {
+	void Awake() {
 		center = new GameObject();
 		center.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
 		origAngle = center.transform.eulerAngles;

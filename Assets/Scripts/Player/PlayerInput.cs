@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
-{
+public class PlayerInput : MonoBehaviour {
 	public bool useMouseLook = true;
 	public int playerIndex = 0;
 
@@ -31,8 +30,7 @@ public class PlayerInput : MonoBehaviour
         SetLabels();
 	}
 
-	public void SetLabels()
-	{
+	public void SetLabels() {
 		inputHorizontalLabel = "Player" + playerIndex + " Horizontal";
 		inputVerticalLabel = "Player" + playerIndex + " Vertical";
 		inputLookXLabel = "Player" + playerIndex + " LookX";
@@ -75,8 +73,7 @@ public class PlayerInput : MonoBehaviour
 	public bool GetFire1() { return fire1; }
 	public bool GetFire2() { return fire2; }
 
-    public bool GetJump()
-    {
+    public bool GetJump() {
         return jump;
     }
 }

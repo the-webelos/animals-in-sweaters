@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlinkingLifetime : MonoBehaviour
-{
+public class BlinkingLifetime : MonoBehaviour {
 	public float lifetime;
 
 	float lifetimeRemaining;
@@ -19,8 +18,7 @@ public class BlinkingLifetime : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
-	{
+	void Update() {
 		lifetimeRemaining -= Time.deltaTime;
 
 		if (lifetimeRemaining < lifetime * .2f) {
@@ -38,13 +36,11 @@ public class BlinkingLifetime : MonoBehaviour
 		Blink(5f);
 	}
 
-	private void BlinkFast()
-	{
+	private void BlinkFast() {
 		Blink(10f);
 	}
 
-	private void Blink(float multiplier)
-	{
+	private void Blink(float multiplier) {
 		// Lerp the multiplier so we get a smooth transition from slow to fast blink
 		float mult = Mathf.Lerp(blinkRate, multiplier, blinkOffset);
 

@@ -3,8 +3,7 @@ using UnityEngine.UI;
 
 
 [RequireComponent(typeof(Image))]
-public class ScrollDetailTexture : MonoBehaviour
-{
+public class ScrollDetailTexture : MonoBehaviour {
 	public bool uniqueMaterial = false;
 	public Vector2 scrollPerSecond = Vector2.zero;
 
@@ -14,8 +13,7 @@ public class ScrollDetailTexture : MonoBehaviour
 	Image mSprite;
 	Material m_Mat;
 
-	void OnEnable ()
-	{
+	void OnEnable () {
 		mSprite = GetComponent<Image>();
 		mOriginal = mSprite.material;
 
@@ -28,8 +26,7 @@ public class ScrollDetailTexture : MonoBehaviour
 		}
 	}
 
-	void OnDisable ()
-	{
+	void OnDisable () {
 		if (mCopy != null)
 		{
 			mSprite.material = mOriginal;
@@ -42,16 +39,13 @@ public class ScrollDetailTexture : MonoBehaviour
 		mOriginal = null;
 	}
 
-	void Update ()
-	{
+	void Update () {
 		Material mat = (mCopy != null) ? mCopy : mOriginal;
 
-		if (mat != null)
-		{
+		if (mat != null) {
 			Texture tex = mat.GetTexture("_DetailTex");
 
-			if (tex != null)
-			{
+			if (tex != null) {
 				mat.SetTextureOffset("_DetailTex", scrollPerSecond * Time.time);
 
 				// TODO: It would be better to add support for MaterialBlocks on UIRenderer,

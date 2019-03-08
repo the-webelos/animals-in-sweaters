@@ -3,21 +3,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
-{
+public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 	public Image containerImage;
 	public Image receivingImage;
 	private Color normalColor;
 	public Color highlightColor = Color.yellow;
 	
-	public void OnEnable ()
-	{
+	public void OnEnable () {
 		if (containerImage != null)
 			normalColor = containerImage.color;
 	}
 	
-	public void OnDrop(PointerEventData data)
-	{
+	public void OnDrop(PointerEventData data) {
 		containerImage.color = normalColor;
 		
 		if (receivingImage == null)
@@ -28,8 +25,7 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
 			receivingImage.overrideSprite = dropSprite;
 	}
 
-	public void OnPointerEnter(PointerEventData data)
-	{
+	public void OnPointerEnter(PointerEventData data) {
 		if (containerImage == null)
 			return;
 		
@@ -38,16 +34,14 @@ public class DropMe : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointe
 			containerImage.color = highlightColor;
 	}
 
-	public void OnPointerExit(PointerEventData data)
-	{
+	public void OnPointerExit(PointerEventData data) {
 		if (containerImage == null)
 			return;
 		
 		containerImage.color = normalColor;
 	}
 	
-	private Sprite GetDropSprite(PointerEventData data)
-	{
+	private Sprite GetDropSprite(PointerEventData data) {
 		var originalObj = data.pointerDrag;
 		if (originalObj == null)
 			return null;

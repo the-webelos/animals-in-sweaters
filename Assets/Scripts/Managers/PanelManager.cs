@@ -15,8 +15,7 @@ public class PanelManager : MonoBehaviour {
 	const string k_OpenTransitionName = "Open";
 	const string k_ClosedStateName = "Closed";
 
-	public void OnEnable()
-	{
+	public void OnEnable() {
 		m_OpenParameterId = Animator.StringToHash (k_OpenTransitionName);
 
 		if (initiallyOpen == null)
@@ -25,8 +24,7 @@ public class PanelManager : MonoBehaviour {
 		OpenPanel(initiallyOpen);
 	}
 
-	public void OpenPanel (Animator anim)
-	{
+	public void OpenPanel (Animator anim) {
 		if (m_Open == anim)
 			return;
 
@@ -47,8 +45,7 @@ public class PanelManager : MonoBehaviour {
 		SetSelected(go);
 	}
 
-	static GameObject FindFirstEnabledSelectable (GameObject gameObject)
-	{
+	static GameObject FindFirstEnabledSelectable (GameObject gameObject) {
 		GameObject go = null;
 		var selectables = gameObject.GetComponentsInChildren<Selectable> (true);
 		foreach (var selectable in selectables) {
@@ -60,8 +57,7 @@ public class PanelManager : MonoBehaviour {
 		return go;
 	}
 
-	public void CloseCurrent()
-	{
+	public void CloseCurrent() {
 		if (m_Open == null)
 			return;
 
@@ -71,8 +67,7 @@ public class PanelManager : MonoBehaviour {
 		m_Open = null;
 	}
 
-	IEnumerator DisablePanelDeleyed(Animator anim)
-	{
+	IEnumerator DisablePanelDeleyed(Animator anim) {
 		bool closedStateReached = false;
 		bool wantToClose = true;
 		while (!closedStateReached && wantToClose)
@@ -89,8 +84,7 @@ public class PanelManager : MonoBehaviour {
 			anim.gameObject.SetActive(false);
 	}
 
-	private void SetSelected(GameObject go)
-	{
+	private void SetSelected(GameObject go) {
 		EventSystem.current.SetSelectedGameObject(go);
 	}
 }
