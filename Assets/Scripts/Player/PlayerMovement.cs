@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpMultiplier = 5f;
     public int maxJumps = 1;
     public float minTimeBetweenJumps = 0.5f;
+    public AudioSource walkingAudioSrc;
 
 	Animator anim;
 	Rigidbody playerRigidbody;
@@ -76,6 +77,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Animating() {
-		anim.SetBool("IsWalking", Mathf.Abs(playerRigidbody.velocity.x) > .01f || Mathf.Abs(playerRigidbody.velocity.z) > .01f);
+        bool isWalking = Mathf.Abs(playerRigidbody.velocity.x) > .01f || Mathf.Abs(playerRigidbody.velocity.z) > .01f;
+
+        anim.SetBool("IsWalking", isWalking);
+
+        if (isWalking && !walkingAudioSrc.isPlaying)
+        {
+            walkingAudioSrc.Play();
+        }
     }
 }
