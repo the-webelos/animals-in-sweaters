@@ -7,12 +7,15 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
 	public GameObject primaryAttackPrefab;
 	public GameObject secondaryAttackPrefab;
 
-	float primaryAttackTimer;
-    float secondaryAttackTimer;
+    private float primaryAttackTimer;
+    private float secondaryAttackTimer;
     PlayerInput playerInput;
 
 	void Awake() {
 		playerInput = GetComponentInParent<PlayerInput>();
+
+        primaryAttackTimer = timeBetweenPrimaryAttacks;
+        secondaryAttackTimer = timeBetweenSecondaryAttacks;
 	}
 
 	void FixedUpdate() {
@@ -25,6 +28,7 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
 		}
 
 		if (playerInput.GetFire2()) {
+            secondaryAttackTimer += Time.deltaTime;
             if (secondaryAttackTimer >= timeBetweenSecondaryAttacks && Time.timeScale != 0) {
                 secondaryAttackTimer = 0f;
                 Attack(secondaryAttackPrefab);
