@@ -621,8 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environPrefabs:
-  - {fileID: 6821724323696818902, guid: 350b1d8a8f81b4944b158313c6f17821, type: 3}
-  - {fileID: 4438654742827726487, guid: 740e6fd1870a24fd5b95f6ae54de12fd, type: 3}
+  - {fileID: 3078083576592028850, guid: b05b3d87716e440fd96f4fe6eee51fc8, type: 3}
 --- !u!114 &1348434483
 MonoBehaviour:
   m_ObjectHideFlags: 0

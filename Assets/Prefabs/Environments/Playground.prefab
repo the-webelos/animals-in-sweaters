@@ -381,6 +381,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slide
       objectReference: {fileID: 0}
+    - target: {fileID: 1661163170336286, guid: 20f09623ef9fc2a42958b07242405ee1, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4728669189016462, guid: 20f09623ef9fc2a42958b07242405ee1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -823,12 +827,12 @@ PrefabInstance:
     - target: {fileID: 153268659595226680, guid: ade6e0c19a24d71438748cdcb1c13e7b,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 3.7055118
+      value: 6.763682
       objectReference: {fileID: 0}
     - target: {fileID: 153268659595226680, guid: ade6e0c19a24d71438748cdcb1c13e7b,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -5.859779
+      value: -1.5232967
       objectReference: {fileID: 0}
     - target: {fileID: 153268659595226680, guid: ade6e0c19a24d71438748cdcb1c13e7b,
         type: 3}
