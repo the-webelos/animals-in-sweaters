@@ -14,11 +14,14 @@ public class LevelIntro : MonoBehaviour
 	Transform origParent;
 	bool isRotating;
 	float zoomDistance;
+	Vector3 origAngle;
 
 	void Awake()
     {
 		center = new GameObject();
 		center.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+		origAngle = center.transform.eulerAngles;
+
 		// Save off the parent so we can set it after rotation
 		origParent = transform.parent;
 
@@ -51,13 +54,18 @@ public class LevelIntro : MonoBehaviour
 				transform.position = finalPosition;
 				transform.LookAt(Vector3.zero);
 			} else {
-				currentTime += Time.deltaTime;
+				float t = currentTime / introLength;
+				t = Mathf.Sin(t * Mathf.PI * 0.5f);
 
-				center.transform.Rotate(center.transform.up,
-					(Mathf.Lerp(rotateAngle*2f, 0f, currentTime/introLength) / introLength) * Time.deltaTime);
+				center.transform.eulerAngles = new Vector3(
+					Mathf.Lerp(origAngle.x, 0f, t),
+					Mathf.Lerp(origAngle.y, rotateAngle, t),
+					Mathf.Lerp(origAngle.z, 0f, t));
 
 				transform.LookAt(Vector3.zero);
 				transform.Translate(Vector3.forward * (zoomDistance / introLength) * Time.deltaTime);
+
+				currentTime += Time.deltaTime;
 			}
 		}
 	}
