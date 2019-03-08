@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 100
   currentHealth: 0
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 9edcf2cba08a3454aa1578c68d9f4333, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!114 &7893425090696523118
