@@ -12,7 +12,7 @@ public class PlayerColor : MonoBehaviour {
 	public void SetColor(Color newColor) {
 		color = newColor;
 
-		SkinnedMeshRenderer rndr = GetComponent<SkinnedMeshRenderer>();
+		SkinnedMeshRenderer rndr = GetComponentInChildren<SkinnedMeshRenderer>();
 		rndr.material.color = color;
 	}
 }
