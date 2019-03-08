@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ResizePanel : MonoBehaviour, IPointerDownHandler, IDragHandler {
-	
 	public Vector2 minSize = new Vector2 (100, 100);
 	public Vector2 maxSize = new Vector2 (400, 400);
 	

@@ -10,8 +10,7 @@ public class SceneSwitcher:MonoBehaviour {
         SceneManager.LoadScene("character-selection");
     }
 
-    public void ChangeSettings()
-    {
+    public void ChangeSettings() {
         SceneManager.LoadScene("change-settings");
     }
 

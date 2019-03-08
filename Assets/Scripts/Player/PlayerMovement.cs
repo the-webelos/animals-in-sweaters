@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
 	public float speed = 6f;
     public float jumpMultiplier = 5f;
     public int maxJumps = 1;
@@ -54,9 +53,6 @@ public class PlayerMovement : MonoBehaviour
 			Vector3 direction = new Vector3(h, 0f, v).normalized * speed;
 			playerRigidbody.AddForce(direction, ForceMode.Acceleration);
 		}
-//		movement.Set(h, 0f, v);
-//		movement = movement.normalized * speed * Time.deltaTime;
-//		playerRigidbody.MovePosition(transform.position + movement);
 	}
 
 	private void Turning(float x, float y) {
@@ -87,8 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetBool("IsWalking", isWalking);
 
-        if (isWalking && grounded && !walkingAudioSrc.isPlaying)
-        {
+        if (isWalking && grounded && !walkingAudioSrc.isPlaying) {
             walkingAudioSrc.Play();
         }
     }

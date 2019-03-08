@@ -4,15 +4,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
-public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
+public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 	public bool dragOnSurfaces = true;
 	
 	private Dictionary<int,GameObject> m_DraggingIcons = new Dictionary<int, GameObject>();
 	private Dictionary<int, RectTransform> m_DraggingPlanes = new Dictionary<int, RectTransform>();
 
-	public void OnBeginDrag(PointerEventData eventData)
-	{
+	public void OnBeginDrag(PointerEventData eventData) {
 		var canvas = FindInParents<Canvas>(gameObject);
 		if (canvas == null)
 			return;
@@ -41,36 +39,31 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 		SetDraggedPosition(eventData);
 	}
 
-	public void OnDrag(PointerEventData eventData)
-	{
+	public void OnDrag(PointerEventData eventData) {
 		if (m_DraggingIcons[eventData.pointerId] != null)
 			SetDraggedPosition(eventData);
 	}
 
-	private void SetDraggedPosition(PointerEventData eventData)
-	{
+	private void SetDraggedPosition(PointerEventData eventData) {
 		if (dragOnSurfaces && eventData.pointerEnter != null && eventData.pointerEnter.transform as RectTransform != null)
 			m_DraggingPlanes[eventData.pointerId] = eventData.pointerEnter.transform as RectTransform;
 		
 		var rt = m_DraggingIcons[eventData.pointerId].GetComponent<RectTransform>();
 		Vector3 globalMousePos;
-		if (RectTransformUtility.ScreenPointToWorldPointInRectangle(m_DraggingPlanes[eventData.pointerId], eventData.position, eventData.pressEventCamera, out globalMousePos))
-		{
+		if (RectTransformUtility.ScreenPointToWorldPointInRectangle(m_DraggingPlanes[eventData.pointerId], eventData.position, eventData.pressEventCamera, out globalMousePos)) {
 			rt.position = globalMousePos;
 			rt.rotation = m_DraggingPlanes[eventData.pointerId].rotation;
 		}
 	}
 
-	public void OnEndDrag(PointerEventData eventData)
-	{
+	public void OnEndDrag(PointerEventData eventData) {
 		if (m_DraggingIcons[eventData.pointerId] != null)
 			Destroy(m_DraggingIcons[eventData.pointerId]);
 
 		m_DraggingIcons[eventData.pointerId] = null;
 	}
 
-	static public T FindInParents<T>(GameObject go) where T : Component
-	{
+	static public T FindInParents<T>(GameObject go) where T : Component {
 		if (go == null) return null;
 		var comp = go.GetComponent<T>();
 
@@ -78,8 +71,7 @@ public class DragMe : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 			return comp;
 		
 		var t = go.transform.parent;
-		while (t != null && comp == null)
-		{
+		while (t != null && comp == null) {
 			comp = t.gameObject.GetComponent<T>();
 			t = t.parent;
 		}

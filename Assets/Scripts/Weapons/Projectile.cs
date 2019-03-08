@@ -11,8 +11,7 @@ public class Projectile : MonoBehaviour, IWeapon {
 	public float fireAngle = 0f;
 	public float lifetime = 3f;
 
-	private void OnTriggerEnter(Collider other)
-	{
+	private void OnTriggerEnter(Collider other) {
 		if (explodeOnContact) {
 			Explode();
 		}
@@ -52,11 +51,10 @@ public class Projectile : MonoBehaviour, IWeapon {
 			}
 		}
 
-			Destroy(gameObject);
+		Destroy(gameObject);
 	}
 
-	public void Attack()
-	{
+	public void Attack() {
 		transform.position += (transform.forward * 2f) + (transform.up * .5f);
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();

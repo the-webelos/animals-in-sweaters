@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupsManager : MonoBehaviour
-{
+public class PickupsManager : MonoBehaviour {
 	public GameObject[] pickups;
 	public float spawnTime;
 
 	GameObject dropArea;
 
-	void Start()
-	{
+	void Start() {
 		dropArea = GameObject.FindGameObjectWithTag("DropArea");
 
 		Invoke("Drop", 1f);

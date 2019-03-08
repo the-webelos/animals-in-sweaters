@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour, IPickupTaker
-{
+public class PlayerAttack : MonoBehaviour, IPickupTaker {
 	public float timeBetweenPrimaryAttacks = 0.15f;
     public float timeBetweenSecondaryAttacks = 1f;
 	public GameObject primaryAttackPrefab;
@@ -23,14 +22,14 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
         secondaryAttackTimer += Time.deltaTime;
 
         if (playerInput.GetFire1()) {
-            if (primaryAttackTimer >= timeBetweenPrimaryAttacks && Time.timeScale != 0) {
+            if (primaryAttackTimer >= timeBetweenPrimaryAttacks && Time.timeScale > 0) {
                 primaryAttackTimer = 0f;
                 Attack(primaryAttackPrefab);
             }
 		}
 
 		if (playerInput.GetFire2()) {
-            if (secondaryAttackTimer >= timeBetweenSecondaryAttacks && Time.timeScale != 0) {
+            if (secondaryAttackTimer >= timeBetweenSecondaryAttacks && Time.timeScale > 0) {
                 secondaryAttackTimer = 0f;
                 Attack(secondaryAttackPrefab);
             }

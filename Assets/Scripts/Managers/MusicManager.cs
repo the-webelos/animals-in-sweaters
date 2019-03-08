@@ -2,27 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
-{
+public class MusicManager : MonoBehaviour {
     public static MusicManager instance = null;
     public AudioSource[] sequentialClips;
     public AudioSource loopClip;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
+    void Awake() {
+        if (instance == null) {
             instance = this;
-        }
-        else if (instance != this)
-        {
-            if (loopClip.clip.name == instance.loopClip.clip.name)
-            {
+        } else if (instance != this) {
+            if (loopClip.clip.name == instance.loopClip.clip.name) {
                 Destroy(gameObject);
                 return;
-            }
-            else
-            {
+            } else {
                 Destroy(instance.gameObject);
                 instance = this;
             }            
@@ -31,21 +23,17 @@ public class MusicManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
+    void Start() {
         instance.loopClip.loop = true;
     }
 
-    public void PlayClips()
-    {
+    public void PlayClips() {
         StartCoroutine(playClips());
     }
 
-    private IEnumerator playClips()
-    {
+    private IEnumerator playClips() {
         Debug.Log("Starting audio clips");
-        foreach (AudioSource sequentialClip in instance.sequentialClips)
-        {
+        foreach (AudioSource sequentialClip in instance.sequentialClips) {
             sequentialClip.Play();
             yield return new WaitForSeconds(sequentialClip.clip.length);
         }
@@ -53,10 +41,8 @@ public class MusicManager : MonoBehaviour
         PlayLoopClip(instance.loopClip);
     }
 
-    public void PlayLoopClip(AudioSource clip)
-    {
-        if (clip != null)
-        {
+    public void PlayLoopClip(AudioSource clip) {
+        if (clip != null) {
             clip.Play();
         }
     }
