@@ -452,10 +452,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438654742162913213}
     m_Modifications:
-    - target: {fileID: 100000, guid: e1360c70e9fb7d24dacb61b1d7d97247, type: 3}
-      propertyPath: m_Name
-      value: island_4
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e1360c70e9fb7d24dacb61b1d7d97247, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -511,6 +507,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: e1360c70e9fb7d24dacb61b1d7d97247, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e1360c70e9fb7d24dacb61b1d7d97247, type: 3}
+      propertyPath: m_Name
+      value: island_4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1360c70e9fb7d24dacb61b1d7d97247, type: 3}
@@ -527,14 +527,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438654743784596509}
     m_Modifications:
-    - target: {fileID: 1350507999234744, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
-      propertyPath: m_Name
-      value: Monkey Bars
-      objectReference: {fileID: 0}
-    - target: {fileID: 1350507999234744, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4576963044467276, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -591,6 +583,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1350507999234744, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
+      propertyPath: m_Name
+      value: Monkey Bars
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350507999234744, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac338af1ca7c5f041b54d2837f897ff6, type: 3}
 --- !u!4 &4434082188084854281 stripped
@@ -606,14 +606,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438654743893198987}
     m_Modifications:
-    - target: {fileID: 1006552841765814, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
-      propertyPath: m_Name
-      value: Playground Lot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1006552841765814, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4711039723755702, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -665,6 +657,14 @@ PrefabInstance:
     - target: {fileID: 4711039723755702, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006552841765814, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
+      propertyPath: m_Name
+      value: Playground Lot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006552841765814, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1327950442375970, guid: aa39bbb46c59d17459aa884dee249250, type: 3}
       propertyPath: m_Layer
@@ -689,14 +689,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438654743082643873}
     m_Modifications:
-    - target: {fileID: 1217554021991080, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
-      propertyPath: m_Name
-      value: Roundabout
-      objectReference: {fileID: 0}
-    - target: {fileID: 1217554021991080, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4948022113349420, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -740,6 +732,14 @@ PrefabInstance:
     - target: {fileID: 4948022113349420, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217554021991080, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
+      propertyPath: m_Name
+      value: Roundabout
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217554021991080, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1449292550393830, guid: 015677d5a132c23469c1c23b998a50b5, type: 3}
       propertyPath: m_Layer
@@ -764,14 +764,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4438654742167912574}
     m_Modifications:
-    - target: {fileID: 1487462133906188, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
-      propertyPath: m_Name
-      value: SeeSaw
-      objectReference: {fileID: 0}
-    - target: {fileID: 1487462133906188, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4435042678576482, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -815,6 +807,14 @@ PrefabInstance:
     - target: {fileID: 4435042678576482, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487462133906188, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
+      propertyPath: m_Name
+      value: SeeSaw
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487462133906188, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1996935509976424, guid: ade6e0c19a24d71438748cdcb1c13e7b, type: 3}
       propertyPath: m_Layer
