@@ -278,8 +278,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
-  jumpMultiplier: 15
+  speed: 250
+  jumpMultiplier: 300
+  maxJumps: 2
+  minTimeBetweenJumps: 0.5
 --- !u!114 &1253818461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7076493a1944efaa6124ba5ec2676c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 0.15
+  timeBetweenPrimaryAttacks: 0.15
+  timeBetweenSecondaryAttacks: 1
   primaryAttackPrefab: {fileID: 452556528854107821, guid: 9a69952c04cf643c4b671dba462716e4,
     type: 3}
   secondaryAttackPrefab: {fileID: 4625225847469412569, guid: 938bea1d4caa54745bba66d5e4ecac82,

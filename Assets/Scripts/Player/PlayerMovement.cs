@@ -4,30 +4,50 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float speed = 6f;
     public float jumpMultiplier = 5f;
+    public int maxJumps = 1;
+    public float minTimeBetweenJumps = 0.5f;
 
 	Animator anim;
 	Rigidbody playerRigidbody;
 	PlayerInput playerInput;
 	int floorMask;
 
-	private void Awake()
-	{
+    private bool grounded = true;
+    private int jumps = 0;
+    private float jumpTimer;
+
+	void Awake() {
 		floorMask = LayerMask.GetMask("Floor");
 		anim = GetComponent<Animator>();
 		playerRigidbody = GetComponent<Rigidbody>();
 		playerInput = GetComponent<PlayerInput>();
+        jumpTimer = minTimeBetweenJumps;
 	}
 
-	private void FixedUpdate()
-	{
+    void FixedUpdate() {
 		Move(playerInput.GetHorizontal(), playerInput.GetVertical());
 		Turning(playerInput.GetLookX(), playerInput.GetLookY());
         Jump();
 		Animating();
 	}
 
-	private void Move(float h, float v)
-	{
+    private void OnCollisionEnter(Collision collision) {
+        // if colliding with the environment, reset jumping to allow user to jump off environment
+        if (collision.gameObject.layer == 10) {
+            grounded = true;
+            jumps = 0;
+            jumpTimer = minTimeBetweenJumps;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision) {
+        // if leaving collision with environment, reset previous jump values
+        if (collision.gameObject.layer == 10) {
+            grounded = false;
+        }
+    }
+
+    private void Move(float h, float v) {
 		if (System.Math.Abs(h) > double.Epsilon || System.Math.Abs(v) > double.Epsilon) {
 			Vector3 direction = new Vector3(h, 0f, v).normalized * speed;
 			playerRigidbody.AddForce(direction, ForceMode.Acceleration);
@@ -37,24 +57,25 @@ public class PlayerMovement : MonoBehaviour
 //		playerRigidbody.MovePosition(transform.position + movement);
 	}
 
-	private void Turning(float x, float y)
-	{
+	private void Turning(float x, float y) {
 		if (System.Math.Abs(x) > double.Epsilon || System.Math.Abs(y) > double.Epsilon) {
 			Quaternion rotation = Quaternion.LookRotation(new Vector3(x, 0f, y));
 			playerRigidbody.MoveRotation(rotation);
 		}
 	}
 
-    private void Jump()
-    {
-//        if(playerInput.GetJump() && System.Math.Abs(playerRigidbody.velocity.y) <= double.Epsilon)
-		if (playerInput.GetJump()) {
-    		playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Acceleration);
+    private void Jump() {
+        jumpTimer += Time.deltaTime;
+        if ((grounded || jumps < maxJumps) && playerInput.GetJump()) {
+            if (jumpTimer >= minTimeBetweenJumps) {
+                jumpTimer = 0f;
+                jumps += 1;
+                playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Acceleration);
+            }
         }
     }
 
-    private void Animating()
-	{
+    private void Animating() {
 		anim.SetBool("IsWalking", Mathf.Abs(playerRigidbody.velocity.x) > .01f || Mathf.Abs(playerRigidbody.velocity.z) > .01f);
     }
 }

@@ -19,8 +19,10 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
 	}
 
 	void FixedUpdate() {
-		if (playerInput.GetFire1()) {
-            primaryAttackTimer += Time.deltaTime;
+        primaryAttackTimer += Time.deltaTime;
+        secondaryAttackTimer += Time.deltaTime;
+
+        if (playerInput.GetFire1()) {
             if (primaryAttackTimer >= timeBetweenPrimaryAttacks && Time.timeScale != 0) {
                 primaryAttackTimer = 0f;
                 Attack(primaryAttackPrefab);
@@ -28,7 +30,6 @@ public class PlayerAttack : MonoBehaviour, IPickupTaker
 		}
 
 		if (playerInput.GetFire2()) {
-            secondaryAttackTimer += Time.deltaTime;
             if (secondaryAttackTimer >= timeBetweenSecondaryAttacks && Time.timeScale != 0) {
                 secondaryAttackTimer = 0f;
                 Attack(secondaryAttackPrefab);
