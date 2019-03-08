@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumpTimer >= minTimeBetweenJumps) {
                 jumpTimer = 0f;
                 jumps += 1;
-                playerRigidbody.AddForce(Vector3.up * jumpMultiplier, ForceMode.Acceleration);
+                playerRigidbody.AddForce(Vector3.up * 300, ForceMode.Acceleration);
             }
         }
     }
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetBool("IsWalking", isWalking);
 
-        if (isWalking && !walkingAudioSrc.isPlaying)
+        if (isWalking && grounded && !walkingAudioSrc.isPlaying)
         {
             walkingAudioSrc.Play();
         }
