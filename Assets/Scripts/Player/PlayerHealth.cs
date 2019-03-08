@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 		currentHealth -= damage;
 
-		healthSlider.value = currentHealth;
+//		healthSlider.value = currentHealth;
 
 		playerAudio.Play();
 	}
