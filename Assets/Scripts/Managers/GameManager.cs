@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public PlayerManager playerManager;
     public int numberOfPlayers = 2;
+    public MusicManager musicManager;
 
     GameObject[] playerPrefabs;
 

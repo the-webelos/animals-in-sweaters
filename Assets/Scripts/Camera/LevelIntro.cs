@@ -6,6 +6,7 @@ public class LevelIntro : MonoBehaviour {
 	public float introLength = 2f;
 	public float rotateAngle = 360f;
 	public float zoomRatio = 3f;
+    public Animator battleStartAnimator;
 
 	Vector3 finalPosition;
 	GameObject center;
@@ -51,6 +52,7 @@ public class LevelIntro : MonoBehaviour {
 
 				transform.position = finalPosition;
 				transform.LookAt(Vector3.zero);
+                battleStartAnimator.SetTrigger("StartCountdown");
 			} else {
 				float t = currentTime / introLength;
 				t = Mathf.Sin(t * Mathf.PI * 0.5f);
