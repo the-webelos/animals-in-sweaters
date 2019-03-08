@@ -6,8 +6,9 @@ public class PlayerMovement : MonoBehaviour {
     public int maxJumps = 1;
     public float minTimeBetweenJumps = 0.5f;
     public AudioSource walkingAudioSrc;
+    public AudioSource jumpingAudioSrc;
 
-	Animator anim;
+    Animator anim;
 	Rigidbody playerRigidbody;
 	PlayerInput playerInput;
 	int floorMask;
@@ -68,6 +69,11 @@ public class PlayerMovement : MonoBehaviour {
                 jumpTimer = 0f;
                 jumps += 1;
                 playerRigidbody.AddForce(Vector3.up * 300, ForceMode.Acceleration);
+
+                if (!jumpingAudioSrc.isPlaying)
+                {
+                    jumpingAudioSrc.Play();
+                }
             }
         }
     }
