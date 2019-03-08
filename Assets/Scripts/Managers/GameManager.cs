@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void ChangePlayerPrefab(int player, GameObject prefab) {
-		Debug.Log("Set Prefab " + player + " " + prefab.name);
         instance.playerPrefabs[player] = prefab;
     }
 

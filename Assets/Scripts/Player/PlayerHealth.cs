@@ -53,12 +53,11 @@ public class PlayerHealth : MonoBehaviour, IHitTaker
 
 	public void TakeHit(int damage)
 	{
-		Debug.Log("TAKE HIT");
 		if (isDead) { return; }
 
 		currentHealth -= damage;
 
-		//healthSlider.value = currentHealth;
+		healthSlider.value = currentHealth;
 
 		playerAudio.Play();
 	}
