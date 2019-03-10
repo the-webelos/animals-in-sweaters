@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     public AudioSource victorySong;
     public AudioSource victoryApplause;
     public MusicManager musicManager;
+    public Slider[] healthSliders;
 
     private Dictionary<int, Player> players;
 	Player winner = null;
@@ -36,6 +37,7 @@ public class BattleManager : MonoBehaviour
 		players[index] = player.GetComponent<Player>();
 
 		players[index].SetPlayerIndex(index);
+        players[index].SetPlayerHealthSlider(healthSliders[index]);
 	}
 
 	private void Update() {

@@ -2,7 +2,6 @@
 
 public class PlayerMovement : MonoBehaviour {
 	public float speed = 6f;
-    public float maxVelocity = 1f;
     public float jumpMultiplier = 5f;
     public int maxJumps = 1;
     public float minTimeBetweenJumps = 0.5f;
@@ -50,15 +49,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move(float h, float v) {
-        if (System.Math.Abs(h) > double.Epsilon && playerRigidbody.velocity.x < maxVelocity) {
-            Vector3 direction = h > 0 ? Vector3.right : Vector3.left;
-            playerRigidbody.AddForce(direction * h, ForceMode.Force);
-        }
-
-        if (System.Math.Abs(v) > double.Epsilon && playerRigidbody.velocity.y < maxVelocity) {
-            Vector3 direction = h > 0 ? Vector3.up : Vector3.down;
-            playerRigidbody.AddForce(direction * v, ForceMode.Force);
-        }
+		if (System.Math.Abs(h) > double.Epsilon || System.Math.Abs(v) > double.Epsilon) {
+			Vector3 direction = new Vector3(h, 0f, v).normalized * speed;
+			playerRigidbody.AddForce(direction, ForceMode.Acceleration);
+		}
 	}
 
 	private void Turning(float x, float y) {

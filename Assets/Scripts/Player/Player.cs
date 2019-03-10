@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,20 +10,21 @@ public class Player : MonoBehaviour
 	PlayerHealth playerHealth;
 	int index;
 
-	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		playerInput = GetComponent<PlayerInput>();
 		playerColor = GetComponentInChildren<PlayerColor>();
 		playerMovement = GetComponent<PlayerMovement>();
 		playerAttack = GetComponentInChildren<PlayerAttack>();
-		playerHealth = GetComponent<PlayerHealth>();
-
-		Setup();
+        playerHealth = GetComponent<PlayerHealth>();
 	}
 
-	// Update is called once per frame
-	void Update()
+    private void Start()
+    {
+        Setup();
+    }
+
+    void Update()
 	{
 		if (playerHealth.IsDead()) {
 			Freeze();
@@ -58,4 +58,9 @@ public class Player : MonoBehaviour
 	public PlayerHealth GetPlayerHealth() {
 		return playerHealth;
 	}
+
+    public void SetPlayerHealthSlider(Slider slider)
+    {
+        playerHealth.healthSlider = slider;
+    }
 }
