@@ -9,18 +9,16 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 	public int currentHealth;
 	//public Slider healthSlider;
 	//public Image damageImage;
-	public AudioClip deathClip;
-    public AudioClip hurtClip;
+	public AudioSource deathAudio;
+    public AudioSource hurtAudio;
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
 	Animator anim;
-	AudioSource playerAudio;
 	bool isDead;
 
 	void Awake() {
 		anim = GetComponent<Animator>();
-		playerAudio = GetComponent<AudioSource>();
 		currentHealth = startingHealth;
 	}
 
@@ -51,9 +49,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 		currentHealth -= damage;
 
         //		healthSlider.value = currentHealth;
-
-        playerAudio.clip = hurtClip;
-		playerAudio.Play();
+        hurtAudio.Play();
 	}
 
 	void Death() {
@@ -63,7 +59,6 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 
 		anim.SetTrigger("Die");
 
-		playerAudio.clip = deathClip;
-		playerAudio.Play();
+        deathAudio.Play();
 	}
 }
