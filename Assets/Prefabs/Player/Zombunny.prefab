@@ -55,7 +55,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 6a4e8b24111754b0ba0ea57571ca284b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec45203ae7a1a54c9d02c355f983833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  speed: 10
   jumpMultiplier: 15
   maxJumps: 1
   minTimeBetweenJumps: 0.5
@@ -245,6 +245,7 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   deathClip: {fileID: 0}
+  hurtClip: {fileID: 0}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!114 &7991500177384678866

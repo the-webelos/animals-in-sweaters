@@ -123,7 +123,7 @@ MonoBehaviour:
     type: 3}
   explodeOnContact: 1
   hitDamage: 25
-  explosionForce: 1000
+  explosionForce: 75
   explosionRadius: 2
   fireForce: 100
   fireAngle: 0
