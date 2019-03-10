@@ -296,7 +296,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5527670462446253974}
+  - {fileID: 9071304811547056897}
   m_Father: {fileID: 5527670463310635980}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -305,7 +305,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0}
---- !u!1001 &9059485057749190522
+--- !u!1001 &5542881092841991149
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -315,7 +315,7 @@ PrefabInstance:
     - target: {fileID: 3535320581553434861, guid: 98872bf654c03ea4181c52ea851f259e,
         type: 3}
       propertyPath: m_Name
-      value: PlayerHealthUI
+      value: PlayerDetailsUI
       objectReference: {fileID: 0}
     - target: {fileID: 3535320581553434860, guid: 98872bf654c03ea4181c52ea851f259e,
         type: 3}
@@ -385,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 3535320581553434860, guid: 98872bf654c03ea4181c52ea851f259e,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 281.62
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3535320581553434860, guid: 98872bf654c03ea4181c52ea851f259e,
         type: 3}
@@ -424,9 +424,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98872bf654c03ea4181c52ea851f259e, type: 3}
---- !u!224 &5527670462446253974 stripped
+--- !u!224 &9071304811547056897 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3535320581553434860, guid: 98872bf654c03ea4181c52ea851f259e,
     type: 3}
-  m_PrefabInstance: {fileID: 9059485057749190522}
+  m_PrefabInstance: {fileID: 5542881092841991149}
   m_PrefabAsset: {fileID: 0}

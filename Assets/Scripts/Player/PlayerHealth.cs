@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
-
 
 public class PlayerHealth : MonoBehaviour, IHitTaker {
 	public int startingHealth = 100;
 	public int currentHealth;
-	//public Slider healthSlider;
+	public Slider healthSlider;
 	//public Image damageImage;
 	public AudioSource deathAudio;
     public AudioSource hurtAudio;
@@ -47,8 +44,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 		if (isDead) { return; }
 
 		currentHealth -= damage;
-
-        //		healthSlider.value = currentHealth;
+        healthSlider.value = currentHealth;
         hurtAudio.Play();
 	}
 
