@@ -6,7 +6,8 @@ public class StageManager : MonoBehaviour {
 	GameObject stagePrefab;
 
     public void LoadStage() {
-		Instantiate(stagePrefab, Vector3.zero, Quaternion.identity);
+		GameObject stage = Instantiate(stagePrefab, Vector3.zero, Quaternion.identity);
+		stage.transform.Rotate(Vector3.up, 45f);
 	}
 
 	public void SetStage(GameObject prefab) {

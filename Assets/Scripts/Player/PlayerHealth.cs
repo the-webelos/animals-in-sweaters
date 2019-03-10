@@ -15,17 +15,15 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 
 	Animator anim;
 	AudioSource playerAudio;
-	PlayerMovement playerMovement;
-	PlayerAttack playerAttack;
 	bool isDead;
 
 	void Awake() {
 		anim = GetComponent<Animator>();
 		playerAudio = GetComponent<AudioSource>();
-		playerMovement = GetComponent<PlayerMovement>();
-		playerAttack = GetComponentInChildren<PlayerAttack>();
 		currentHealth = startingHealth;
 	}
+
+	public bool IsDead() { return isDead; }
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "DeathTrigger") {
@@ -56,7 +54,6 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 		playerAudio.Play();
 	}
 
-
 	void Death() {
 		if (isDead) { return; }
 
@@ -66,8 +63,5 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 
 		playerAudio.clip = deathClip;
 		playerAudio.Play();
-
-		playerMovement.enabled = false;
-		playerAttack.enabled = false;
 	}
 }
