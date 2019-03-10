@@ -27,9 +27,14 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 		if (playerHealth.IsDead()) {
-			playerMovement.enabled = false;
-			playerAttack.enabled = false;
+			Freeze();
 		}
+	}
+
+	public void Freeze()
+	{
+		playerMovement.enabled = false;
+		playerAttack.enabled = false;
 	}
 
 	public void SetPlayerIndex(int index)

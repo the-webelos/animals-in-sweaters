@@ -43,6 +43,8 @@ public class BattleManager : MonoBehaviour
 		}
 
 		if (winner != null) {
+			winner.Freeze();
+
 			if (!zoomToWinner) {
 				zoomToWinner = true;
 				victoryZoom.SetVictorTransform(winner.transform);
@@ -58,6 +60,6 @@ public class BattleManager : MonoBehaviour
 	}
 
 	void GotoCharacterSelect() {
-		SceneSwitcher.AfterBattle();
+		GameManager.GetSceneSwitcher().SelectCharacters();
 	}
 }

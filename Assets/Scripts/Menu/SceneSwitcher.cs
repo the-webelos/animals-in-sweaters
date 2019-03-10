@@ -11,10 +11,6 @@ public class SceneSwitcher:MonoBehaviour {
 		SceneManager.LoadScene("stage-select");
 	}
 
-	public static void AfterBattle() {
-        SceneManager.LoadScene("character-selection");
-    }
-
 	public void SelectCharacters()
 	{
 		SceneManager.LoadScene("character-selection");

@@ -6,7 +6,7 @@ public class Melee : MonoBehaviour, IWeapon {
 	public int hitDamage;
 
 	Vector3 startRotation;
-	float swingDuration = 2f;
+//	float swingDuration = 2f;
 
 	private void OnTriggerEnter(Collider other) {
 		foreach (IHitTaker hitTaker in other.GetComponents<IHitTaker>()) {
