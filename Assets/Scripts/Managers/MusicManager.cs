@@ -46,4 +46,12 @@ public class MusicManager : MonoBehaviour {
             clip.Play();
         }
     }
+
+    public void StopLoopClip()
+    {
+        if (instance.loopClip != null && instance.loopClip.isPlaying)
+        {
+            instance.loopClip.Stop();
+        }
+    }
 }

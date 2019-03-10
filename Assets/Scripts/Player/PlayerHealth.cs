@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 	//public Slider healthSlider;
 	//public Image damageImage;
 	public AudioClip deathClip;
+    public AudioClip hurtClip;
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
@@ -49,8 +50,9 @@ public class PlayerHealth : MonoBehaviour, IHitTaker {
 
 		currentHealth -= damage;
 
-//		healthSlider.value = currentHealth;
+        //		healthSlider.value = currentHealth;
 
+        playerAudio.clip = hurtClip;
 		playerAudio.Play();
 	}
 

@@ -7,8 +7,11 @@ public class BattleManager : MonoBehaviour
 {
 	public Transform[] spawnPoints;
 	public Text winText;
+    public AudioSource victorySong;
+    public AudioSource victoryApplause;
+    public MusicManager musicManager;
 
-	private Dictionary<int, Player> players;
+    private Dictionary<int, Player> players;
 	Player winner = null;
 	bool zoomToWinner;
 	VictoryZoom victoryZoom;
@@ -48,6 +51,9 @@ public class BattleManager : MonoBehaviour
 			if (!zoomToWinner) {
 				zoomToWinner = true;
 				victoryZoom.SetVictorTransform(winner.transform);
+                musicManager.StopLoopClip();
+                victorySong.Play();
+                victoryApplause.Play();
 			} else {
 				if (victoryZoom.TargetReached()) {
 					if (winText.text == "") {
