@@ -8,7 +8,7 @@ public class PickupsManager : MonoBehaviour {
 
 	GameObject dropArea;
 
-	void Start() {
+	void Awake() {
 		dropArea = GameObject.FindGameObjectWithTag("DropArea");
 
 		Invoke("Drop", 1f);

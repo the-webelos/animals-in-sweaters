@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6177351398115068517}
   - component: {fileID: 1971390048248479780}
-  - component: {fileID: 6109324916201483322}
+  - component: {fileID: 2286525868043193768}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aaaaf4b31a024f69b43da6e268de816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6109324916201483322
+  numberOfPlayers: 2
+  musicManager: {fileID: 0}
+--- !u!114 &2286525868043193768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,9 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7943665522434439069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417a1c97727194e4c91c7a2963297ec8, type: 3}
+  m_Script: {fileID: 11500000, guid: 53e3eb3ae4c95427ca417b5b57d9c336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
-  spawnPoints: []
-  numberOfPlayers: 2
+  stagePrefab: {fileID: 0}

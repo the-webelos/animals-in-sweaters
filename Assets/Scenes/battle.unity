@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44861162, g: 0.49866325, b: 0.5756681, a: 1}
+  m_IndirectSpecularColor: {r: 0.44861138, g: 0.49866277, b: 0.5756677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -724,8 +724,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1348434481}
-  - component: {fileID: 1348434482}
   - component: {fileID: 1348434483}
+  - component: {fileID: 1348434482}
   m_Layer: 10
   m_Name: Environment
   m_TagString: Untagged
@@ -756,13 +756,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1348434480}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e3eb3ae4c95427ca417b5b57d9c336, type: 3}
+  m_Script: {fileID: 11500000, guid: f9557541c3e204634b0f8e87954385ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environPrefabs:
-  - {fileID: 6821724323696818902, guid: 350b1d8a8f81b4944b158313c6f17821, type: 3}
-  - {fileID: 3078083576592028850, guid: b05b3d87716e440fd96f4fe6eee51fc8, type: 3}
-  - {fileID: 4438654742827726487, guid: 740e6fd1870a24fd5b95f6ae54de12fd, type: 3}
 --- !u!114 &1348434483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,17 +791,17 @@ PrefabInstance:
     - target: {fileID: 6177351398115068517, guid: 85b53a17b79c14f5ebef7fb9fff524a9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 532.88293
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6177351398115068517, guid: 85b53a17b79c14f5ebef7fb9fff524a9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 414.86078
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6177351398115068517, guid: 85b53a17b79c14f5ebef7fb9fff524a9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.8651123
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6177351398115068517, guid: 85b53a17b79c14f5ebef7fb9fff524a9,
         type: 3}
@@ -846,11 +842,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1971390048248479780, guid: 85b53a17b79c14f5ebef7fb9fff524a9,
-        type: 3}
-      propertyPath: musicManager
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b53a17b79c14f5ebef7fb9fff524a9, type: 3}

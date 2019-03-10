@@ -24,7 +24,6 @@ public class StageSelection : MonoBehaviour
 		center.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
 
 		stageAngle = 360f / stagePrefabs.Length;
-		Debug.Log("Angle: " + stageAngle);
 
 		foreach (GameObject stagePrefab in stagePrefabs) {
 			GameObject stage = Instantiate(stagePrefab, Vector3.back * 30f, Quaternion.identity, center.transform);
@@ -46,12 +45,12 @@ public class StageSelection : MonoBehaviour
 				ChangeStage(stageChange);
 			}
 
-			if (Input.GetKey("enter")) {
-				SceneManager.LoadScene("level-1");
+			if (Input.GetKey(KeyCode.Return)) {
+				GameManager.GetStageManager().SetStage(stagePrefabs[selection]);
+				SceneManager.LoadScene("battle");
 			}
 		} else {
 			if (timer >= selectionChangeTime) {
-				Debug.Log("Snap: " + rotateTargetAngle);
 				center.transform.eulerAngles = new Vector3(0f, rotateTargetAngle, 0f);
 				rotating = false;
 			} else {
@@ -66,9 +65,9 @@ public class StageSelection : MonoBehaviour
 	}
 
 	private int GetStageChange() {
-		if (Input.GetKey("left")) {
+		if (Input.GetKey(KeyCode.LeftArrow)) {
 			return -1;
-		} else if (Input.GetKey("right")) {
+		} else if (Input.GetKey(KeyCode.RightArrow)) {
 			return 1;
 		}
 		return 0;
@@ -91,7 +90,5 @@ public class StageSelection : MonoBehaviour
 		timer = 0f;
 
 		rotating = true;
-
-		Debug.Log("Change: " + selection + " " + origAngle + " target: " + rotateTargetAngle);
 	}
 }

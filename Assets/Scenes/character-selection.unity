@@ -759,12 +759,12 @@ PrefabInstance:
     - target: {fileID: 7036756473459868390, guid: 0206540b6ee6b4854abb79ea3a4dddea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewGame
+      value: SelectStage
       objectReference: {fileID: 0}
     - target: {fileID: 7036756473459868390, guid: 0206540b6ee6b4854abb79ea3a4dddea,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7036756473657519171, guid: 0206540b6ee6b4854abb79ea3a4dddea,
         type: 3}

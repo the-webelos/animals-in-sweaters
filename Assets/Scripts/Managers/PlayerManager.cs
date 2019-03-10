@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour {
-	public GameObject playerPrefab;
 	public Transform[] spawnPoints;
 
     void Start() {

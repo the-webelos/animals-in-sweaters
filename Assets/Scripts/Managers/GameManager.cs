@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
-    public PlayerManager playerManager;
     public int numberOfPlayers = 2;
     public MusicManager musicManager;
 
@@ -20,7 +19,6 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(gameObject);
 
-        instance.playerManager = GetComponent<PlayerManager>();
         instance.playerPrefabs = new GameObject[numberOfPlayers];
     }
 
@@ -30,5 +28,9 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject GetPlayerPrefab(int index) {
         return instance.playerPrefabs[index];
+	}
+
+	public static StageManager GetStageManager() {
+		return instance.GetComponent<StageManager>();
 	}
 }
