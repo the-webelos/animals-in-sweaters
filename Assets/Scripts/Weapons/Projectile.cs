@@ -2,6 +2,8 @@
 
 public class Projectile : MonoBehaviour, IWeapon {
 	public GameObject explosionSystem;
+	public GameObject explosionLight;
+
 	public bool explodeOnContact = true;
 
 	public int hitDamage;
@@ -31,6 +33,11 @@ public class Projectile : MonoBehaviour, IWeapon {
 		if (explosionSystem) { 
 	    	GameObject explosion = Instantiate(explosionSystem, transform.position, Quaternion.identity);
     	}
+
+		if (explosionLight) {
+			GameObject light = Instantiate(explosionLight, transform.position, Quaternion.identity);
+			Destroy(light, .1f);
+		}
 
 		Rigidbody rb = gameObject.GetComponent<Rigidbody>();
 

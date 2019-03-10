@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4072232093711853002}
   - component: {fileID: 3748125991242343877}
   - component: {fileID: 9003931353353547820}
+  - component: {fileID: 5809498256612168676}
   m_Layer: 13
   m_Name: Fireball
   m_TagString: Untagged
@@ -126,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionSystem: {fileID: 1742013225946848, guid: 2851aa8babf9e4351a90646bb1bc3bed,
     type: 3}
+  explosionLight: {fileID: 4667831460624953127, guid: d87f1656c40e74860988ba940ad9bb79,
+    type: 3}
   explodeOnContact: 1
   hitDamage: 10
   explosionForce: 500
@@ -162,6 +165,44 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!108 &5809498256612168676
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255477315306736078}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 0.9811321, g: 0.32287827, b: 0.18974723, a: 1}
+  m_Intensity: 1
+  m_Range: 8
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &7991935578447477815
 PrefabInstance:
   m_ObjectHideFlags: 0

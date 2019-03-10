@@ -157,6 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionSystem: {fileID: 1742013225946848, guid: 2851aa8babf9e4351a90646bb1bc3bed,
     type: 3}
+  explosionLight: {fileID: 4667831460624953127, guid: d87f1656c40e74860988ba940ad9bb79,
+    type: 3}
   explodeOnContact: 0
   hitDamage: 30
   explosionForce: 800
