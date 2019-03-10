@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 	PlayerMovement playerMovement;
 	PlayerAttack playerAttack;
 	PlayerHealth playerHealth;
-
+	int index;
 
 	// Start is called before the first frame update
 	void Start()
@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 		playerMovement = GetComponent<PlayerMovement>();
 		playerAttack = GetComponentInChildren<PlayerAttack>();
 		playerHealth = GetComponent<PlayerHealth>();
+
+		Setup();
 	}
 
 	// Update is called once per frame
@@ -30,7 +32,12 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	public void Setup(int index) {
+	public void SetPlayerIndex(int index)
+	{
+		this.index = index;
+	}
+
+	void Setup() {
 		playerInput.playerIndex = index;
 
 		if (index == 0) {
@@ -41,5 +48,9 @@ public class Player : MonoBehaviour
 
 		playerInput.SetLabels();
 		playerColor.SetColor(new Color(index * 1f, 1f, 1f, 1f));
+	}
+
+	public PlayerHealth GetPlayerHealth() {
+		return playerHealth;
 	}
 }

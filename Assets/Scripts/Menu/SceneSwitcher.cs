@@ -2,8 +2,8 @@
 using UnityEngine.SceneManagement;
 
 public class SceneSwitcher:MonoBehaviour {
-    public void NewGame(string level) {
-        SceneManager.LoadScene(level);
+    public void StartBattle() {
+        SceneManager.LoadScene("battle");
     }
 
 	public void SelectStage()
@@ -11,11 +11,16 @@ public class SceneSwitcher:MonoBehaviour {
 		SceneManager.LoadScene("stage-select");
 	}
 
-	public void SelectCharacters() {
+	public static void AfterBattle() {
         SceneManager.LoadScene("character-selection");
     }
 
-    public void ChangeSettings() {
+	public void SelectCharacters()
+	{
+		SceneManager.LoadScene("character-selection");
+	}
+
+	public void ChangeSettings() {
         SceneManager.LoadScene("change-settings");
     }
 

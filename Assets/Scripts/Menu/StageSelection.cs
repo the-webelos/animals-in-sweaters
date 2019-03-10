@@ -47,7 +47,7 @@ public class StageSelection : MonoBehaviour
 
 			if (Input.GetKey(KeyCode.Return)) {
 				GameManager.GetStageManager().SetStage(stagePrefabs[selection]);
-				SceneManager.LoadScene("battle");
+				new SceneSwitcher().StartBattle();
 			}
 		} else {
 			if (timer >= selectionChangeTime) {
